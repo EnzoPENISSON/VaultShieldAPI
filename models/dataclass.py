@@ -34,6 +34,7 @@ class Utilisateur(Base):
     isAdmin = Column(TINYINT(1), nullable=False, server_default=text("0"))
     token = Column(String(512))
     token_refresh = Column(String(512))
+    token_refresh_exp = Column(DateTime)
     last_co = Column(DateTime)
 
 
