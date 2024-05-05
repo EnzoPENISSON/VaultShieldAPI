@@ -1,5 +1,6 @@
 import json
 import time
+import uuid
 from datetime import timedelta, datetime
 
 from flask import jsonify, request
@@ -18,12 +19,8 @@ class Authentification:
             if bcrypt.checkpw(password.encode('utf-8'), enc_pw):
                 # Create access and refresh tokens with expiration time
                 access_token = create_access_token(identity=email)
-                refresh_token = create_refresh_token(identity=email)
-
                 # Save tokens into the database
                 user.token = access_token
-                user.token_refresh = refresh_token
-                user.token_refresh_exp = datetime.now() + timedelta(hours=7)
                 user.last_co = db.func.now()
                 db.session.commit()
 
@@ -32,8 +29,7 @@ class Authentification:
                         "status": "success",
                         "message": "User connected",
                         "username": user.username,
-                        "access_token": access_token,
-                        "refresh_token": refresh_token
+                        "access_token": access_token
                     }
                 )
 
@@ -42,7 +38,12 @@ class Authentification:
     def register(self, email, password, username):
         try:
             hashed_pw = bcrypt.hashpw(bytes(password, 'utf-8'), bcrypt.gensalt())
-            new_user = Utilisateur(email=email, password=hashed_pw, username=username)
+            new_user = Utilisateur(
+                uuidUser=str(uuid.uuid4()),
+                email=email,
+                password=hashed_pw,
+                username=username
+            )
             db.session.add(new_user)
             db.session.commit()
             response = app.response_class(
@@ -57,7 +58,7 @@ class Authentification:
             )
             return response
         except Exception as e:
-            #print(e)
+            print(e)
             response = app.response_class(
                 response=json.dumps(
                     {
@@ -107,19 +108,26 @@ def protected():
     return jsonify(logged_in_as=current_user), 200  # Respond with the identity in JSON format
 
 @app.route('/auth/refresh', methods=['POST'])
-@jwt_required(refresh=True)
+@jwt_required(refresh=False)
 def refresh_token():
     current_user = get_jwt_identity()  # Get the identity of the current user from the JWT token
 
-    # Generate a new access token
-    new_access_token = create_access_token(identity=current_user)
+    # Check if the access token is expired
+    token_is_expired = get_jwt()['exp'] < time.time()
 
-    # Update the token in the database
-    user = db.session.query(Utilisateur).filter(Utilisateur.email == current_user).first()
-    user.token = new_access_token
-    db.session.commit()
-
-    return jsonify(access_token=new_access_token), 200  # Respond with the new access token
+    if token_is_expired:
+        # Check if the refresh token is expired
+        return jsonify(
+            success=False,
+            message="Access token is expired. Please reconnect."
+        ), 401
+    else:
+        temps = (get_jwt()['exp'] - time.time()) / 60
+        # convert the time in seconds to minutes
+        return jsonify(
+            success=True,
+            message="Access token is not expired. No need to refresh.",
+        ), 200
 
 
 @app.route('/auth/logout', methods=['POST'])

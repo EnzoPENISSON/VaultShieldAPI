@@ -22,9 +22,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Secret key for signing JWTs
 app.config['JWT_SECRET_KEY'] = 'yhRHXnDfn%WozCcZziLNP#5wVwUK#5c46SZ7ZSxk'  # Change this to your own secret key
 # add time expiration for the token
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 900  # 15 minutes
-# 7 hours
-app.config['JWT_REFRESH_TOKEN_EXPIRES'] = 25200  # 7 hours
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 3600 # 1 hour
 
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
@@ -38,6 +36,7 @@ with app.app_context():
         print('\n\nConnection failed ! ERROR : ', e)
 
 from .controllers.Authcontrollers import *
+from .controllers.Vault import *
 
 @app.route("/")
 def root():

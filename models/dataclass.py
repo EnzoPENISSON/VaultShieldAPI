@@ -27,14 +27,14 @@ class Groupe(Base):
 class Utilisateur(Base):
     __tablename__ = 'Utilisateurs'
 
+    # idUser type UUID
     idUser = Column(INTEGER(11), primary_key=True)
+    uuidUser = Column(String(40))
     username = Column(String(255), nullable=False, unique=True)
     email = Column(String(255), nullable=False, unique=True)
     password = Column(String(512), nullable=False)
     isAdmin = Column(TINYINT(1), nullable=False, server_default=text("0"))
     token = Column(String(512))
-    token_refresh = Column(String(512))
-    token_refresh_exp = Column(DateTime)
     last_co = Column(DateTime)
 
 
@@ -60,10 +60,19 @@ class Coffre(Base):
     Categorie = relationship('Categorie')
     Utilisateurs = relationship('Utilisateur', secondary='Classeur')
 
+class Classeur(Base):
+    __tablename__ = 'Classeur'
 
-t_Classeur = Table(
-    'Classeur', metadata,
-    Column('idUser', ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=False),
-    Column('idCoffre', ForeignKey('Coffre.idCoffre'), primary_key=True, nullable=False, index=True),
-    Index('idUser', 'idUser', 'idCoffre')
-)
+    idUser = Column(ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=False)
+    idCoffre = Column(ForeignKey('Coffre.idCoffre'), primary_key=True, nullable=False, index=True)
+
+    Coffre = relationship('Coffre')
+    Utilisateurs = relationship('Utilisateur')
+
+
+# t_Classeur = Table(
+#     'Classeur', metadata,
+#     Column('idUser', ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=False),
+#     Column('idCoffre', ForeignKey('Coffre.idCoffre'), primary_key=True, nullable=False, index=True),
+#     Index('idUser', 'idUser', 'idCoffre')
+# )
