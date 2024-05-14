@@ -109,7 +109,8 @@ def getVaults():
 @app.route("/vault/get", methods=['POST'])
 @jwt_required()
 def getVault():
-    paramettre = C.parametersissetPOST(['uuidCoffre'], request.json)
+    paramettre = C.parametersissetPOST(['uuidCoffre', 'secretkey', 'userUUid'], request.json)
+
     if not paramettre:
         return jsonify({"status": "failed", "message": "Missing parameters"})
 
@@ -119,17 +120,26 @@ def getVault():
     idUser = get_jwt_identity()
     uuidCoffre = data["uuidCoffre"]
 
+    secretkey = data["secretkey"]
+
+    userUUid = data["userUUid"]
+
     vault = Vault()
     coffre = vault.getVault(idUser, uuidCoffre)
+
+    if not coffre:
+        return jsonify({"status": "failed", "message": "Vault not found"})
+
+    coffrechiffre = Chiffrement(uuid.UUID(userUUid).bytes)
 
     return jsonify(
         {
             "uuidCoffre": coffre.uuidCoffre,
-            "email": coffre.email,
-            "password": coffre.password,
+            "email": coffrechiffre.decrypt_password(coffre.email, secretkey.encode(), uuid.UUID(userUUid).bytes),
+            "password": coffrechiffre.decrypt_password(coffre.password, secretkey.encode(), uuid.UUID(userUUid).bytes),
             "sitename": coffre.sitename,
             "urlsite": coffre.urlsite,
             "urllogo": coffre.urllogo,
-            "note": coffre.note
+            "note": coffrechiffre.decrypt_password(coffre.note, secretkey.encode(), uuid.UUID(userUUid).bytes)
         }
     )
