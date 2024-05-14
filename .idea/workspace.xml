@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="auth">
-      <change afterPath="$PROJECT_DIR$/controllers/Chiffrement.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/Vault.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/brouillon.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/VaultShieldApi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/VaultShieldApi.iml" afterDir="false" />
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="chiffrement et dechiffrement">
+      <change afterPath="$PROJECT_DIR$/controllers/Controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/UserController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/Authcontrollers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Authcontrollers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Chiffrement.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Chiffrement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Vault.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Vault.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,16 +52,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.__init__.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/enzop/PycharmProjects/VaultShieldApi/controllers",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\enzop\PycharmProjects\VaultShieldApi\controllers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\enzop\PycharmProjects\VaultShieldApi\models" />
     </key>
@@ -144,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712755836630</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="chiffrement et dechiffrement">
+      <option name="closed" value="true" />
+      <created>1714927288057</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714927288057</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +173,7 @@
     <MESSAGE value="First" />
     <MESSAGE value="Initialisation" />
     <MESSAGE value="auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="auth" />
+    <MESSAGE value="chiffrement et dechiffrement" />
+    <option name="LAST_COMMIT_MESSAGE" value="chiffrement et dechiffrement" />
   </component>
 </project>

@@ -71,8 +71,6 @@ class Chiffrement:
 
         vaultclass.email = self.encrypt_password(vaultclass.email)
         vaultclass.password = self.encrypt_password(vaultclass.password)
-        vaultclass.urlsite = self.encrypt_password(vaultclass.urlsite)
-        vaultclass.urllogo = self.encrypt_password(vaultclass.urllogo)
         vaultclass.note = self.encrypt_password(vaultclass.note)
 
         return vaultclass

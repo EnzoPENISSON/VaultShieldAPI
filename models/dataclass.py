@@ -14,9 +14,6 @@ class Categorie(Base):
     idCategorie = Column(INTEGER(11), primary_key=True)
     libCategorie = Column(String(255), nullable=False)
 
-    Utilisateurs = relationship('Utilisateur', secondary='Appartenir')
-
-
 class Groupe(Base):
     __tablename__ = 'Groupe'
 
@@ -38,27 +35,30 @@ class Utilisateur(Base):
     last_co = Column(DateTime)
 
 
-t_Appartenir = Table(
-    'Appartenir', metadata,
-    Column('idUser', ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=False),
-    Column('idCategorie', ForeignKey('Categorie.idCategorie'), primary_key=True, nullable=False, index=True),
-    Index('idUser', 'idUser', 'idCategorie')
-)
+class Appartenir(Base):
+    __tablename__ = 'Appartenir'
 
+    idUser = Column(ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=False)
+    idCategorie = Column(ForeignKey('Categorie.idCategorie'), primary_key=True, nullable=False, index=True)
+
+    Categorie = relationship('Categorie')
+    Utilisateurs = relationship('Utilisateur')
+
+    def __str__(self):
+        return "idUser: "+str(self.idUser)+" idCategorie: "+str(self.idCategorie)
 
 class Coffre(Base):
     __tablename__ = 'Coffre'
 
     idCoffre = Column(INTEGER(11), primary_key=True)
     idCategorie = Column(ForeignKey('Categorie.idCategorie'), index=True)
+    uuidCoffre = Column(String(100))
     email = Column(String(255), nullable=False)
     password = Column(String(512), nullable=False)
+    sitename = Column(String(100), nullable=False)
     urlsite = Column(String(512), nullable=False)
     urllogo = Column(String(512), nullable=False)
     note = Column(String(512), nullable=False)
-
-    Categorie = relationship('Categorie')
-    Utilisateurs = relationship('Utilisateur', secondary='Classeur')
 
 class Classeur(Base):
     __tablename__ = 'Classeur'
@@ -69,10 +69,6 @@ class Classeur(Base):
     Coffre = relationship('Coffre')
     Utilisateurs = relationship('Utilisateur')
 
+    def __str__(self):
+        return "idUser: "+str(self.idUser)+" idCoffre: "+str(self.idCoffre)
 
-# t_Classeur = Table(
-#     'Classeur', metadata,
-#     Column('idUser', ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=False),
-#     Column('idCoffre', ForeignKey('Coffre.idCoffre'), primary_key=True, nullable=False, index=True),
-#     Index('idUser', 'idUser', 'idCoffre')
-# )

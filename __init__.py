@@ -37,6 +37,7 @@ with app.app_context():
 
 from .controllers.Authcontrollers import *
 from .controllers.Vault import *
+from .controllers.UserController import *
 
 @app.route("/")
 def root():

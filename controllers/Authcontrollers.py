@@ -2,7 +2,7 @@ import json
 import time
 import uuid
 from datetime import timedelta, datetime
-
+from .Controller import ControllerClass as C
 from flask import jsonify, request
 from ..models.dataclass import Utilisateur
 from .. import app
@@ -24,7 +24,7 @@ class Authentification:
                 user.last_co = db.func.now()
                 db.session.commit()
 
-                return json.dumps(
+                return jsonify(
                     {
                         "status": "success",
                         "message": "User connected",
@@ -33,7 +33,7 @@ class Authentification:
                     }
                 )
 
-        return json.dumps({"status": "failed", "message": "Invalid email or password"})
+        return jsonify({"status": "failed", "message": "Invalid email or password"})
 
     def register(self, email, password, username):
         try:
@@ -47,7 +47,7 @@ class Authentification:
             db.session.add(new_user)
             db.session.commit()
             response = app.response_class(
-                response=json.dumps(
+                response=jsonify(
                     {
                         "status": "success",
                         "message": "User created"
@@ -60,7 +60,7 @@ class Authentification:
         except Exception as e:
             print(e)
             response = app.response_class(
-                response=json.dumps(
+                response=jsonify(
                     {
                         "status": "error",
                         "message": "User creation failed"
@@ -81,6 +81,10 @@ auth = Authentification()
 
 @app.route("/auth/login", methods=['POST'])
 def login():
+    paramettre = C.parametersissetPOST(['email','password'], request.json)
+    if not paramettre:
+        return jsonify({"status": "failed", "message": "Missing parameters"})
+
     req_data = request.get_json(force=True)
 
     return auth.login(req_data['email'],req_data['password'])
@@ -95,7 +99,7 @@ def register():
 
     # control if the password is empty or shorter than 12 characters
     if len(req_data['password']) < 12:
-        return json.dumps({"status": "failed", "message": "Password too short (12 characters minimum)"})
+        return jsonify({"status": "failed", "message": "Password too short (12 characters minimum)"})
 
 
     return auth.register(req_data['email'],req_data['password'],req_data['username'])
