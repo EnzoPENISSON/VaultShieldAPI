@@ -2,8 +2,12 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+# Enable CORS
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 #server = "10.193.190.100"
 server = "127.0.0.1"
