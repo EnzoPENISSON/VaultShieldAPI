@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="CORS authorize">
-      <change afterPath="$PROJECT_DIR$/controllers/tools.py" afterDir="false" />
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="Update coffre">
+      <change afterPath="$PROJECT_DIR$/controllers/CategorieController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Chiffrement.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Chiffrement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/UserController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/Vault.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Vault.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/brouillon.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/brouillon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/fonctionnalites.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717527144875</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update coffre">
+      <option name="closed" value="true" />
+      <created>1717847881224</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1717847881226</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,6 +209,7 @@
     <MESSAGE value="gestion vault" />
     <MESSAGE value="gestion vault V2" />
     <MESSAGE value="CORS authorize" />
-    <option name="LAST_COMMIT_MESSAGE" value="CORS authorize" />
+    <MESSAGE value="Update coffre" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update coffre" />
   </component>
 </project>

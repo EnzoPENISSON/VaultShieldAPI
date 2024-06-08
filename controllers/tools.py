@@ -19,3 +19,8 @@ class Tools:
         utilisateur = UserController()
         userId = utilisateur.getUserUUID(email)
         return userId
+
+    def getUserId(self, email):
+        utilisateur = UserController()
+        userId = utilisateur.getUserId(email)
+        return userId

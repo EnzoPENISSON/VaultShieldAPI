@@ -38,8 +38,8 @@ class Utilisateur(Base):
 class Appartenir(Base):
     __tablename__ = 'Appartenir'
 
-    idUser = Column(ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=False)
-    idCategorie = Column(ForeignKey('Categorie.idCategorie'), primary_key=True, nullable=False, index=True)
+    idUser = Column(ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=True, index=True)
+    idCategorie = Column(ForeignKey('Categorie.idCategorie'), primary_key=True, nullable=True, index=True)
 
     Categorie = relationship('Categorie')
     Utilisateurs = relationship('Utilisateur')

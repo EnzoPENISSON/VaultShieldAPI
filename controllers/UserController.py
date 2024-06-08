@@ -15,6 +15,13 @@ class UserController:
         else:
             return None
 
+    def getUserId(self, email):
+        listUser = db.session.query(Utilisateur).filter(Utilisateur.email == email).first()
+        if listUser:
+            return listUser.idUser
+        else:
+            return None
+
     def getUserInfo(self, email):
         listUser = db.session.query(Utilisateur).filter(Utilisateur.email == email).first()
         if listUser:

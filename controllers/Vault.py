@@ -110,6 +110,20 @@ class Vault:
 
         return coffre
 
+    def deleteCoffre(self, idUser, uuidCoffre):
+        identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.email == idUser).first()
+
+        coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.idUser == identifiantUtilistaure.idUser).filter(Coffre.uuidCoffre == uuidCoffre).first()
+
+        if not coffre:
+            return None
+
+        db.session.delete(coffre)
+
+        db.session.commit()
+
+        return coffre
+
 @app.route("/vault/add", methods=['POST'])
 @jwt_required()
 def createVault():
@@ -210,3 +224,33 @@ def updateVault():
         return jsonify({"status": "failed", "message": "Vault not found"})
 
     return jsonify({"status": "success", "message": "Vault updated"}), 201
+
+
+@app.route("/vault/delete", methods=['DELETE'])
+@jwt_required()
+def deleteVault():
+    data = request.get_json()
+    idUser = get_jwt_identity()
+
+    outils = Tools()
+    user = outils.userExist(idUser, data)
+    if user:
+        return user
+
+    dictdata = json.dumps(data)
+
+    # Convert the JSON string back to a Python dictionary
+    dictdata = json.loads(dictdata)
+
+    # Update the dictionary with the new key-value pair
+    userId = outils.getUserUUID(idUser)
+
+    dictdata.update({"idUser": userId})
+
+    vault = Vault()
+    coffre = vault.deleteCoffre(idUser, dictdata["uuidCoffre"])
+
+    if not coffre:
+        return jsonify({"status": "failed", "message": "Vault not found"})
+
+    return jsonify({"status": "success", "message": "Vault deleted"}), 201
