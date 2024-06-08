@@ -3,6 +3,7 @@ import uuid
 from .Controller import ControllerClass as C
 from flask import jsonify, request
 from ..models.dataclass import Utilisateur, Coffre, Classeur
+from .tools import *
 from .. import app
 from .. import db
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity, create_refresh_token, get_jwt
@@ -70,6 +71,42 @@ class Vault:
         identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.email == idUser).first()
 
         coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.idUser == identifiantUtilistaure.idUser).filter(Coffre.uuidCoffre == uuidCoffre).first()
+
+        return coffre
+
+    def updateVault(self, data,uuidCoffre,iduser):
+        identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.email == iduser).first()
+
+        coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.idUser == identifiantUtilistaure.idUser).filter(Coffre.uuidCoffre == uuidCoffre).first()
+
+        if not coffre:
+            return None
+
+        # parcourir les données
+        for key, value in data.items():
+            if key == "email":
+                coffre.email = value
+            elif key == "password":
+                coffre.password = value
+            elif key == "sitename":
+                coffre.sitename = value
+            elif key == "urlsite":
+                coffre.urlsite = value
+            elif key == "urllogo":
+                coffre.urllogo = value
+            elif key == "note":
+                coffre.note = value
+
+        uuid_obj = uuid.UUID(data["userUUid"])
+
+        # Convert UUID object to bytes
+        uuid_bytes = uuid_obj.bytes
+
+        coffrechiffre = Chiffrement(uuid_bytes)
+
+        coffrechiffre.updateVault(coffre,data["secretkey"])
+
+        db.session.commit()
 
         return coffre
 
@@ -143,3 +180,33 @@ def getVault():
             "note": coffrechiffre.decrypt_password(coffre.note, secretkey.encode(), uuid.UUID(userUUid).bytes)
         }
     )
+
+@app.route("/vault/update", methods=['PUT'])
+@jwt_required()
+def updateVault():
+    data = request.get_json()
+    idUser = get_jwt_identity()
+
+
+    outils = Tools()
+    user = outils.userExist(idUser, data)
+    if user:
+        return user
+
+    dictdata = json.dumps(data)
+
+    # Convert the JSON string back to a Python dictionary
+    dictdata = json.loads(dictdata)
+
+    # Update the dictionary with the new key-value pair
+    userId = outils.getUserUUID(idUser)
+
+    dictdata.update({"idUser": userId})
+
+    vault = Vault()
+    coffre = vault.updateVault(dictdata, dictdata["uuidCoffre"], idUser)
+
+    if not coffre:
+        return jsonify({"status": "failed", "message": "Vault not found"})
+
+    return jsonify({"status": "success", "message": "Vault updated"}), 201

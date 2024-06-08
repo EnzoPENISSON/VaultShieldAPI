@@ -64,6 +64,19 @@ class Chiffrement:
         except Exception as e:
             return "Decryption failed"
 
+    def isChiffrer(self, element):
+        # return True if the element is encrypted (to avoid double encryption)
+        if isinstance(element, bytes):
+            if element.startswith(b"gAAAAA"):
+                return True
+            else:
+                return False
+        elif isinstance(element, str):
+            if element.startswith("gAAAAA"):
+                return True
+            else:
+                return False
+
     def ChiffrerVault(self, vaultclass):
         self.generate_key()
 
@@ -72,5 +85,17 @@ class Chiffrement:
         vaultclass.email = self.encrypt_password(vaultclass.email)
         vaultclass.password = self.encrypt_password(vaultclass.password)
         vaultclass.note = self.encrypt_password(vaultclass.note)
+
+        return vaultclass
+
+    def updateVault(self, vaultclass, fusionkey):
+        self.key = fusionkey.encode()
+        self.runfernet(self.key, self.uuidkey)
+        if not self.isChiffrer(vaultclass.email):
+            vaultclass.email = self.encrypt_password(vaultclass.email)
+        if not self.isChiffrer(vaultclass.password):
+            vaultclass.password = self.encrypt_password(vaultclass.password)
+        if not self.isChiffrer(vaultclass.note):
+            vaultclass.note = self.encrypt_password(vaultclass.note)
 
         return vaultclass

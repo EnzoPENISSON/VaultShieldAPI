@@ -1,4 +1,0 @@
-
-
-class Fonctionnalites:
-    pass

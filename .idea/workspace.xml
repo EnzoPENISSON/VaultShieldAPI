@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="gestion vault V2">
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="CORS authorize">
+      <change afterPath="$PROJECT_DIR$/controllers/tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Chiffrement.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Chiffrement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Vault.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Vault.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/brouillon.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/brouillon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/fonctionnalites.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715698108840</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="CORS authorize">
+      <option name="closed" value="true" />
+      <created>1717527144875</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717527144875</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,6 +200,7 @@
     <MESSAGE value="chiffrement et dechiffrement" />
     <MESSAGE value="gestion vault" />
     <MESSAGE value="gestion vault V2" />
-    <option name="LAST_COMMIT_MESSAGE" value="gestion vault V2" />
+    <MESSAGE value="CORS authorize" />
+    <option name="LAST_COMMIT_MESSAGE" value="CORS authorize" />
   </component>
 </project>
