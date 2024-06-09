@@ -82,6 +82,7 @@ class Chiffrement:
 
         self.runfernet(self.key, self.uuidkey)
 
+        vaultclass.username = self.encrypt_password(vaultclass.username)
         vaultclass.email = self.encrypt_password(vaultclass.email)
         vaultclass.password = self.encrypt_password(vaultclass.password)
         vaultclass.note = self.encrypt_password(vaultclass.note)
@@ -91,6 +92,8 @@ class Chiffrement:
     def updateVault(self, vaultclass, fusionkey):
         self.key = fusionkey.encode()
         self.runfernet(self.key, self.uuidkey)
+        if not self.isChiffrer(vaultclass.username):
+            vaultclass.username = self.encrypt_password(vaultclass.username)
         if not self.isChiffrer(vaultclass.email):
             vaultclass.email = self.encrypt_password(vaultclass.email)
         if not self.isChiffrer(vaultclass.password):

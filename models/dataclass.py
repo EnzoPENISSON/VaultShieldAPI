@@ -53,6 +53,7 @@ class Coffre(Base):
     idCoffre = Column(INTEGER(11), primary_key=True)
     idCategorie = Column(ForeignKey('Categorie.idCategorie'), index=True)
     uuidCoffre = Column(String(100))
+    username = Column(String(100), nullable=False)
     email = Column(String(255), nullable=False)
     password = Column(String(512), nullable=False)
     sitename = Column(String(100), nullable=False)

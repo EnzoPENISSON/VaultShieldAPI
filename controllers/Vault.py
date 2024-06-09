@@ -4,6 +4,7 @@ from .Controller import ControllerClass as C
 from flask import jsonify, request
 from ..models.dataclass import Utilisateur, Coffre, Classeur
 from .tools import *
+from .CategorieController import CategoryController
 from .. import app
 from .. import db
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity, create_refresh_token, get_jwt
@@ -22,6 +23,7 @@ class Vault:
             coffre = Coffre(
                 idCategorie=data["idcategorie"],
                 uuidCoffre = uuid.uuid5(uuid.NAMESPACE_DNS, data["email"]).hex,
+                username = data["username"],
                 email = data["email"],
                 password = data["password"],
                 sitename = data["sitename"],
@@ -84,6 +86,8 @@ class Vault:
 
         # parcourir les données
         for key, value in data.items():
+            if key == "username":
+                coffre.username = value
             if key == "email":
                 coffre.email = value
             elif key == "password":
@@ -123,6 +127,44 @@ class Vault:
         db.session.commit()
 
         return coffre
+
+    def AssocierCategorie(self, idUser, idCategorie, idCoffre):
+        try:
+            categories = CategoryController()
+
+            listcategoriesuser = categories.getCategoriesIdentifiant(idUser)
+
+            if idCategorie not in listcategoriesuser:
+                return jsonify({"status": "failed", "message": "Category not found"})
+
+            coffre = db.session.query(Coffre).filter(Coffre.uuidCoffre == idCoffre).first()
+
+            if not coffre:
+                return jsonify({"status": "failed", "message": "Vault not found"})
+
+            coffre.idCategorie = idCategorie
+
+            db.session.commit()
+
+            return jsonify({"status": "success", "message": "Category added"})
+        except Exception as e:
+            return jsonify({"status": "failed", "message": "Error adding category "+str(e)})
+
+    def removeCategorieFromVault(self, idUser, idCoffre):
+        try:
+            # recupérer le coffre et faire une jointure avec l'utilisateur
+            coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.idUser == idUser).filter(Coffre.uuidCoffre == idCoffre).first()
+
+            if not coffre:
+                return jsonify({"status": "failed", "message": "Vault not found"})
+
+            coffre.idCategorie = None
+
+            db.session.commit()
+
+            return jsonify({"status": "success", "message": "Category removed"})
+        except Exception as e:
+            return jsonify({"status": "failed", "message": "Error removing category "+str(e)})
 
 @app.route("/vault/add", methods=['POST'])
 @jwt_required()
@@ -186,6 +228,7 @@ def getVault():
     return jsonify(
         {
             "uuidCoffre": coffre.uuidCoffre,
+            "username": coffrechiffre.decrypt_password(coffre.username, secretkey.encode(), uuid.UUID(userUUid).bytes),
             "email": coffrechiffre.decrypt_password(coffre.email, secretkey.encode(), uuid.UUID(userUUid).bytes),
             "password": coffrechiffre.decrypt_password(coffre.password, secretkey.encode(), uuid.UUID(userUUid).bytes),
             "sitename": coffre.sitename,
@@ -254,3 +297,56 @@ def deleteVault():
         return jsonify({"status": "failed", "message": "Vault not found"})
 
     return jsonify({"status": "success", "message": "Vault deleted"}), 201
+
+
+@app.route("/vault/category/associer", methods=['POST'])
+@jwt_required()
+def associerCategorie():
+    data = request.get_json()
+    idUser = get_jwt_identity()
+
+    outils = Tools()
+    user = outils.userExist(idUser, data)
+    if user:
+        return user
+
+    dictdata = json.dumps(data)
+
+    # Convert the JSON string back to a Python dictionary
+    dictdata = json.loads(dictdata)
+
+    # Update the dictionary with the new key-value pair
+    userId = outils.getUserId(idUser)
+
+    dictdata.update({"idUser": userId})
+
+    vault = Vault()
+    res = vault.AssocierCategorie(dictdata["idUser"], dictdata["idCategorie"], dictdata["idCoffre"])
+
+    return res
+
+@app.route("/vault/category/remove", methods=['PUT'])
+@jwt_required()
+def removeCategorieFromVault():
+    data = request.get_json()
+    idUser = get_jwt_identity()
+
+    outils = Tools()
+    user = outils.userExist(idUser, data)
+    if user:
+        return user
+
+    dictdata = json.dumps(data)
+
+    # Convert the JSON string back to a Python dictionary
+    dictdata = json.loads(dictdata)
+
+    # Update the dictionary with the new key-value pair
+    userId = outils.getUserId(idUser)
+
+    dictdata.update({"idUser": userId})
+
+    vault = Vault()
+    res = vault.removeCategorieFromVault(dictdata["idUser"],dictdata["idCoffre"])
+
+    return res

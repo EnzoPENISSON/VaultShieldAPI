@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="Update coffre">
-      <change afterPath="$PROJECT_DIR$/controllers/CategorieController.py" afterDir="false" />
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="ajout categorie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/UserController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CategorieController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CategorieController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Chiffrement.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Chiffrement.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/Vault.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Vault.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717847881226</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="ajout categorie">
+      <option name="closed" value="true" />
+      <created>1717849962435</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717849962435</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +216,7 @@
     <MESSAGE value="gestion vault V2" />
     <MESSAGE value="CORS authorize" />
     <MESSAGE value="Update coffre" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update coffre" />
+    <MESSAGE value="ajout categorie" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout categorie" />
   </component>
 </project>
