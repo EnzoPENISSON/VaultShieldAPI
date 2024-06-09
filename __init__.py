@@ -43,6 +43,7 @@ from .controllers.Authcontrollers import *
 from .controllers.Vault import *
 from .controllers.UserController import *
 from .controllers.CategorieController import *
+from .controllers.GroupeController import *
 
 @app.route("/")
 def root():

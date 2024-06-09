@@ -18,7 +18,16 @@ class Groupe(Base):
     __tablename__ = 'Groupe'
 
     idGroupe = Column(INTEGER(11), primary_key=True)
-    Nom = Column(INTEGER(11), nullable=False)
+    idUser = Column(ForeignKey('Utilisateurs.idUser'), nullable=False, index=True)
+    Nom = Column(String(50), nullable=False)
+
+class Partager(Base):
+    __tablename__ = 'Partager'
+
+    idGroupe = Column(INTEGER(11), primary_key=True)
+    idCoffre = Column(INTEGER(11), primary_key=True)
+    Created_Time = Column(DateTime, nullable=False, server_default=text("current_timestamp()"))
+    Expired_Time = Column(DateTime, nullable=True)
 
 
 class Utilisateur(Base):

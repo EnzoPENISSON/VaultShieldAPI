@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="ajout categorie">
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="CRUD coffre categorie&#10;&#10;Et ajout champ username dans le coffre">
+      <change afterPath="$PROJECT_DIR$/controllers/GroupeController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/CategorieController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CategorieController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Chiffrement.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Chiffrement.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Vault.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Vault.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -193,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717849962435</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="CRUD coffre categorie&#10;&#10;Et ajout champ username dans le coffre">
+      <option name="closed" value="true" />
+      <created>1717928417861</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1717928417861</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,6 +224,7 @@
     <MESSAGE value="CORS authorize" />
     <MESSAGE value="Update coffre" />
     <MESSAGE value="ajout categorie" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout categorie" />
+    <MESSAGE value="CRUD coffre categorie&#10;&#10;Et ajout champ username dans le coffre" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD coffre categorie&#10;&#10;Et ajout champ username dans le coffre" />
   </component>
 </project>
