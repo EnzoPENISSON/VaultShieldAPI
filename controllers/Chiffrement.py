@@ -17,13 +17,8 @@ class Chiffrement:
         self.key = Fernet.generate_key()
         return self.key
 
-    def generate_uuid(self):
-        self.uuidkey = uuid.uuid4().bytes
-        return self.uuidkey
     def runfernet(self, key, uuidkey):
         keyfusion = self.fusion(key, uuidkey)
-
-        print("Key fusion:", keyfusion)
 
         self.fernet = Fernet(keyfusion)
 

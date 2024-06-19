@@ -10,10 +10,13 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 
 
 class CategoryController:
-
-    def ajouterCategorie(self, idUser, nomCategorie):
+    tool = Tools()
+    def ajouterCategorie(self, uuidUser, nomCategorie):
         try:
-            categorie = Categorie(libCategorie=nomCategorie)
+            categorie = Categorie(
+                uuidCategorie=self.tool.longUUIDGenerator(),
+                libCategorie=nomCategorie
+            )
 
             # si pas dans la base on ajoute
             if not db.session.query(Categorie).filter(Categorie.libCategorie == nomCategorie).first():
@@ -22,34 +25,34 @@ class CategoryController:
 
             categorieid = db.session.query(Categorie).filter(Categorie.libCategorie == nomCategorie).first()
 
-            if not db.session.query(Appartenir).filter(Appartenir.idCategorie == categorieid.idCategorie).filter(Appartenir.idUser == idUser).first():
-                appartenir = Appartenir(idCategorie=categorieid.idCategorie, idUser=idUser)
+            if not db.session.query(Appartenir).filter(Appartenir.uuidCategorie == categorieid.uuidCategorie).filter(Appartenir.uuidUser == uuidUser).first():
+                appartenir = Appartenir(uuidCategorie=categorieid.uuidCategorie, uuidUser=uuidUser)
                 db.session.add(appartenir)
                 db.session.commit()
             return jsonify({"status": "success", "message": "Category added"})
         except Exception as e:
             return jsonify({"status": "failed", "message": "Error adding category "+str(e)})
 
-    def getCategoriesIdentifiant(self, idUser):
+    def getCategoriesIdentifiant(self, uuidUser):
         try:
-            categories = db.session.query(Categorie).join(Appartenir).filter(Appartenir.idUser == idUser).all()
+            categories = db.session.query(Categorie).join(Appartenir).filter(Appartenir.uuidUser == uuidUser).all()
             categories_list = []
             for categorie in categories:
                 categories_list.append(
-                    categorie.idCategorie
+                    categorie.uuidCategorie
                 )
             return categories_list
         except Exception as e:
             print("error getting categories "+str(e))
             return []
-    def getCategories(self, idUser):
+    def getCategories(self, uuidUser):
         try:
-            categories = db.session.query(Categorie).join(Appartenir).filter(Appartenir.idUser == idUser).all()
+            categories = db.session.query(Categorie).join(Appartenir).filter(Appartenir.uuidUser == uuidUser).all()
             categories_list = []
             for categorie in categories:
                 categories_list.append(
                     {
-                        "idCategorie": categorie.idCategorie,
+                        "idCategorie": categorie.uuidCategorie,
                         "libCategorie": categorie.libCategorie
                     }
                 )
@@ -57,28 +60,28 @@ class CategoryController:
         except Exception as e:
             return jsonify({"status": "failed", "message": "Error getting categories "+str(e)})
 
-    def getListVaultsWithCategory(self, idUser, idCategorie):
+    def getListVaultsWithCategory(self, uuidUser):
         try:
             from .Vault import Vault
             vaults = Vault()
-            vaults = vaults.getVaults(idUser)
+            vaults = vaults.getVaults(uuidUser)
             return vaults
         except Exception as e:
             return "error getting vaults with category "+str(e)
 
-    def removeCategory(self, emailuser, idUser, idCategorie):
+    def removeCategory(self, uuidUser, uuidCategorie):
         try:
-            listV = self.getListVaultsWithCategory(emailuser, idCategorie)
+            listV = self.getListVaultsWithCategory(uuidUser)
 
             if listV:
                 for v in listV:
                     # replace idCategorie by null
                     coffre = db.session.query(Coffre).filter(Coffre.uuidCoffre == v["uuidCoffre"]).first()
-                    coffre.idCategorie = None
+                    coffre.uuidCategorie = None
                     db.session.commit()
 
 
-            appartenir = db.session.query(Appartenir).filter(Appartenir.idCategorie == idCategorie).filter(Appartenir.idUser == idUser).first()
+            appartenir = db.session.query(Appartenir).filter(Appartenir.uuidCategorie == uuidCategorie).filter(Appartenir.uuidUser == uuidUser).first()
             if appartenir:
                  db.session.delete(appartenir)
                  db.session.commit()
@@ -97,17 +100,11 @@ def addCategory():
     if not paramettre:
         return jsonify({"status": "failed", "message": "Missing parameters"})
     nomCategorie = request.json.get('nomCategorie', None)
-    useremail = get_jwt_identity()
+    uuidUser = get_jwt_identity()
 
-    user = Tools()
-    res = user.userExist(useremail, request.json)
-    if res:
-        return res
-
-    userid = user.getUserId(useremail)
 
     if nomCategorie:
-        res = Category.ajouterCategorie(userid, nomCategorie)
+        res = Category.ajouterCategorie(uuidUser, nomCategorie)
         return res
     else:
         return jsonify({"status": "failed", "message": "Invalid category name"})
@@ -115,36 +112,21 @@ def addCategory():
 @app.route("/category/get", methods=['GET'])
 @jwt_required()
 def getCategories():
-    useremail = get_jwt_identity()
+    uuiduser = get_jwt_identity()
 
-    user = Tools()
-    res = user.userExist(useremail, request.json)
-    if res:
-        return res
-
-    userid = user.getUserId(useremail)
-
-    res = Category.getCategories(userid)
-    return res
+    return Category.getCategories(uuiduser)
 
 @app.route("/category/remove", methods=['DELETE'])
 @jwt_required()
 def removeCategory():
-    paramettre = C.parametersissetPOST(['idCategorie'], request.json)
+    paramettre = C.parametersissetPOST(['uuidCategorie'], request.json)
     if not paramettre:
         return jsonify({"status": "failed", "message": "Missing parameters"})
-    idCategorie = request.json.get('idCategorie', None)
-    useremail = get_jwt_identity()
+    uuidCategorie = request.json.get('uuidCategorie', None)
+    uuidUser = get_jwt_identity()
 
-    user = Tools()
-    res = user.userExist(useremail, request.json)
-    if res:
-        return res
-
-    userid = user.getUserId(useremail)
-
-    if idCategorie:
-        res = Category.removeCategory(useremail,userid, idCategorie)
+    if uuidCategorie:
+        res = Category.removeCategory(uuidUser, uuidCategorie)
         return res
     else:
         return jsonify({"status": "failed", "message": "Invalid category id"})

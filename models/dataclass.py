@@ -11,31 +11,34 @@ metadata = Base.metadata
 class Categorie(Base):
     __tablename__ = 'Categorie'
 
-    idCategorie = Column(INTEGER(11), primary_key=True)
+    uuidCategorie = Column(String(100), primary_key=True)
     libCategorie = Column(String(255), nullable=False)
 
 class Groupe(Base):
     __tablename__ = 'Groupe'
 
-    idGroupe = Column(INTEGER(11), primary_key=True)
-    idUser = Column(ForeignKey('Utilisateurs.idUser'), nullable=False, index=True)
+    uuidGroupe = Column(String(100), primary_key=True)
+    uuidUserCreator  = Column(ForeignKey('Utilisateurs.uuidUser'), nullable=False,primary_key=True, index=True)
     Nom = Column(String(50), nullable=False)
+
+    Utilisateurs = relationship('Utilisateur')
 
 class Partager(Base):
     __tablename__ = 'Partager'
 
-    idGroupe = Column(INTEGER(11), primary_key=True)
-    idCoffre = Column(INTEGER(11), primary_key=True)
+    uuidGroupe = Column(ForeignKey('Groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
+    uuidCoffre = Column(ForeignKey('Coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
     Created_Time = Column(DateTime, nullable=False, server_default=text("current_timestamp()"))
     Expired_Time = Column(DateTime, nullable=True)
 
+    Groupe = relationship('Groupe')
+    Coffre = relationship('Coffre')
 
 class Utilisateur(Base):
     __tablename__ = 'Utilisateurs'
 
     # idUser type UUID
-    idUser = Column(INTEGER(11), primary_key=True)
-    uuidUser = Column(String(40))
+    uuidUser = Column(String(100),primary_key=True)
     username = Column(String(255), nullable=False, unique=True)
     email = Column(String(255), nullable=False, unique=True)
     password = Column(String(512), nullable=False)
@@ -47,8 +50,8 @@ class Utilisateur(Base):
 class Appartenir(Base):
     __tablename__ = 'Appartenir'
 
-    idUser = Column(ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=True, index=True)
-    idCategorie = Column(ForeignKey('Categorie.idCategorie'), primary_key=True, nullable=True, index=True)
+    uuidUser = Column(ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=True, index=True)
+    uuidCategorie = Column(ForeignKey('Categorie.uuidCategorie'), primary_key=True, nullable=True, index=True)
 
     Categorie = relationship('Categorie')
     Utilisateurs = relationship('Utilisateur')
@@ -59,9 +62,8 @@ class Appartenir(Base):
 class Coffre(Base):
     __tablename__ = 'Coffre'
 
-    idCoffre = Column(INTEGER(11), primary_key=True)
-    idCategorie = Column(ForeignKey('Categorie.idCategorie'), index=True)
-    uuidCoffre = Column(String(100))
+    uuidCoffre = Column(String(100), primary_key=True)
+    uuidCategorie = Column(ForeignKey('Categorie.uuidCategorie'), index=True)
     username = Column(String(100), nullable=False)
     email = Column(String(255), nullable=False)
     password = Column(String(512), nullable=False)
@@ -70,11 +72,13 @@ class Coffre(Base):
     urllogo = Column(String(512), nullable=False)
     note = Column(String(512), nullable=False)
 
+    Categorie = relationship('Categorie')
+
 class Classeur(Base):
     __tablename__ = 'Classeur'
 
-    idUser = Column(ForeignKey('Utilisateurs.idUser'), primary_key=True, nullable=False)
-    idCoffre = Column(ForeignKey('Coffre.idCoffre'), primary_key=True, nullable=False, index=True)
+    uuidUser = Column(ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=False)
+    uuidCoffre = Column(ForeignKey('Coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
 
     Coffre = relationship('Coffre')
     Utilisateurs = relationship('Utilisateur')
@@ -82,3 +86,16 @@ class Classeur(Base):
     def __str__(self):
         return "idUser: "+str(self.idUser)+" idCoffre: "+str(self.idCoffre)
 
+class sharegroupe_users(Base):
+    __tablename__ = 'sharegroupe_users'
+
+    uuidGroupe = Column(ForeignKey('Groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
+    uuidUser = Column(ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=False, index=True)
+    Shared_Time = Column(DateTime, nullable=False, server_default=text("current_timestamp()"))
+    Expired_Time = Column(DateTime, nullable=True)
+
+    Groupe = relationship('Groupe')
+    Utilisateurs = relationship('Utilisateur')
+
+    def __str__(self):
+        return "idUser: "+str(self.idUser)+" idGroupe: "+str(self.idGroupe)

@@ -99,8 +99,38 @@ def test(uuidkey, key, passwordchiffre):
     except Exception as e:
         print("Error in test():", e)
 
-test(
-   uuidkey="e771380c-0718-4be3-8f4c-907d2f47c09f",
-   key="RdWWUGi_rwP_NoP45z24YGn30Qto0n3BMHTmDcyLdhU=",
-   passwordchiffre="gAAAAABmZX_rZuqPOD9unD_K8-nFcxRkDW-HPeFmu_hI3BHzDU6Fi7XLb5lE-IzQuLYv_xKQbV9LoTcyXPfIhFwbtfK3543vHQ=="
-)
+# test(
+#    uuidkey="e771380c-0718-4be3-8f4c-907d2f47c09f",
+#    key="RdWWUGi_rwP_NoP45z24YGn30Qto0n3BMHTmDcyLdhU=",
+#    passwordchiffre="gAAAAABmZX_rZuqPOD9unD_K8-nFcxRkDW-HPeFmu_hI3BHzDU6Fi7XLb5lE-IzQuLYv_xKQbV9LoTcyXPfIhFwbtfK3543vHQ=="
+# )
+
+import uuid
+# Function to split the combined UUID string and return UUID objects
+def split_and_convert_to_uuids(combined_uuid):
+    # Split the combined UUID string
+    parts = combined_uuid.split('-')
+    print(parts)
+    if len(parts) != 10:
+        raise ValueError('badly formed combined UUID string')
+
+    # Reassemble the parts into two valid UUID strings
+    uuid_str1 = '-'.join(parts[:5])
+    uuid_str2 = '-'.join(parts[5:])
+
+    # Convert strings to UUID objects
+    uuid_obj1 = uuid.UUID(uuid_str1)
+    uuid_obj2 = uuid.UUID(uuid_str2)
+
+    return uuid_obj1, uuid_obj2
+
+
+# Example combined UUID
+combined_uuid = "0c8a9970-84d0-40f0-8a23-8cc822b14635-5e1b174e-58b5-4b3d-8d6f-b3d9fa90c2f8"
+
+try:
+    uuid1, uuid2 = split_and_convert_to_uuids(combined_uuid)
+    print("UUID 1:", uuid1)
+    print("UUID 2:", uuid2)
+except ValueError as e:
+    print(e)

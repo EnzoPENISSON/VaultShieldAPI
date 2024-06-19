@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="CRUD coffre categorie&#10;&#10;Et ajout champ username dans le coffre">
-      <change afterPath="$PROJECT_DIR$/controllers/GroupeController.py" afterDir="false" />
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="Création des groupes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Authcontrollers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Authcontrollers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CategorieController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CategorieController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Chiffrement.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Chiffrement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/GroupeController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GroupeController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/UserController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Vault.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Vault.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/brouillon.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/brouillon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +63,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/enzop/PycharmProjects/VaultShieldApi/controllers&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -99,7 +106,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
+        <option value="bundled-python-sdk-5b207ade9991-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17890.14" />
       </set>
     </attachedChunks>
   </component>
@@ -200,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717928417861</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Création des groupes">
+      <option name="closed" value="true" />
+      <created>1717941341371</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1717941341371</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +240,38 @@
     <MESSAGE value="Update coffre" />
     <MESSAGE value="ajout categorie" />
     <MESSAGE value="CRUD coffre categorie&#10;&#10;Et ajout champ username dans le coffre" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD coffre categorie&#10;&#10;Et ajout champ username dans le coffre" />
+    <MESSAGE value="Création des groupes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Création des groupes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/Vault.py</url>
+          <line>173</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/Vault.py</url>
+          <line>193</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/Vault.py</url>
+          <line>203</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/Vault.py</url>
+          <line>249</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/Vault.py</url>
+          <line>274</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

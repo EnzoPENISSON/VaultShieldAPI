@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 #server = "10.193.190.100"
-server = "127.0.0.1"
+server = "127.0.0.1:3310"
 database = "bddvaultshield"
 username = "vaultuserAPI"
 password = "UserVaultAPI*53"

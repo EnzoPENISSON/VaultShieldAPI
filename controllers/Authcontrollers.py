@@ -1,15 +1,15 @@
 import json
 import time
-import uuid
-from datetime import timedelta, datetime
 from .Controller import ControllerClass as C
 from flask import jsonify, request
 from ..models.dataclass import Utilisateur
 from .. import app
 from .. import db
 import bcrypt
+from .tools import Tools
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity, create_refresh_token, get_jwt
 class Authentification:
+    tool = Tools()
 
     def login(self, email, password):
         listUser = db.session.query(Utilisateur).filter(Utilisateur.email == email)
@@ -18,7 +18,7 @@ class Authentification:
             enc_pw = user.password.encode('utf-8')
             if bcrypt.checkpw(password.encode('utf-8'), enc_pw):
                 # Create access and refresh tokens with expiration time
-                access_token = create_access_token(identity=email)
+                access_token = create_access_token(identity=user.uuidUser)
                 # Save tokens into the database
                 user.token = access_token
                 user.last_co = db.func.now()
@@ -35,41 +35,43 @@ class Authentification:
 
         return jsonify({"status": "failed", "message": "Invalid email or password"})
 
+    def me(self, uuidUser):
+        user = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == uuidUser).first()
+        if not user:
+            return jsonify({"status": "failed", "message": "User not found"})
+
+        return jsonify(
+            {
+                "status": "success",
+                "username": user.username,
+                "email": user.email,
+            }
+        )
     def register(self, email, password, username):
         try:
             hashed_pw = bcrypt.hashpw(bytes(password, 'utf-8'), bcrypt.gensalt())
             new_user = Utilisateur(
-                uuidUser=str(uuid.uuid4()),
+                uuidUser=self.tool.longUUIDGenerator(),
                 email=email,
                 password=hashed_pw,
                 username=username
             )
             db.session.add(new_user)
             db.session.commit()
-            response = app.response_class(
-                response=jsonify(
+            return jsonify(
                     {
                         "status": "success",
                         "message": "User created"
                     }
-                ),
-                status=200,
-                mimetype='application/json'
-            )
-            return response
+                )
         except Exception as e:
             print(e)
-            response = app.response_class(
-                response=jsonify(
+            return jsonify(
                     {
                         "status": "error",
                         "message": "User creation failed"
                     }
-                ),
-                status=500,
-                mimetype='application/json'
-            )
-            return response
+                )
 
         def send_email(self, email):
             pass
@@ -109,7 +111,8 @@ def register():
 def protected():
     current_user = get_jwt_identity()  # Get the identity of the current user from the JWT token
 
-    return jsonify(logged_in_as=current_user), 200  # Respond with the identity in JSON format
+
+    return auth.me(current_user)
 
 @app.route('/auth/refresh', methods=['POST'])
 @jwt_required(refresh=False)

@@ -3,26 +3,26 @@ import uuid
 from .Controller import ControllerClass as C
 from flask import jsonify, request
 from ..models.dataclass import Utilisateur, Coffre, Classeur
-from .tools import *
+from .tools import Tools
 from .CategorieController import CategoryController
 from .. import app
 from .. import db
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity, create_refresh_token, get_jwt
 from .Chiffrement import Chiffrement
 class Vault:
-
+    tool = Tools()
     def createVault(self, data):
             # convert uuidkey to bytes
-            uuid_obj = uuid.UUID(data["uuidkey"])
+            uuid1, uuid2 = self.tool.split_and_convert_two_uuids(str(data["uuidUser"]))
 
             # Convert UUID object to bytes
-            uuid_bytes = uuid_obj.bytes
+            uuid_bytes = uuid1.bytes + uuid2.bytes
 
             coffrechiffre = Chiffrement(uuid_bytes)
 
             coffre = Coffre(
-                idCategorie=data["idcategorie"],
-                uuidCoffre = uuid.uuid5(uuid.NAMESPACE_DNS, data["email"]).hex,
+                uuidCategorie=data["uuidcategorie"],
+                uuidCoffre = self.tool.longUUIDGenerator(),
                 username = data["username"],
                 email = data["email"],
                 password = data["password"],
@@ -37,15 +37,13 @@ class Vault:
 
             db.session.commit()
 
-            identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.email == data["idUser"]).first()
+            identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == data["uuidUser"]).first()
 
             ## add to classeur
             classeur = Classeur(
-                idUser = identifiantUtilistaure.idUser,
-                idCoffre = coffre.idCoffre
+                uuidUser = identifiantUtilistaure.uuidUser,
+                uuidCoffre = coffre.uuidCoffre
             )
-
-            print("Classeur:",classeur.__str__())
 
             db.session.add(classeur)
 
@@ -53,10 +51,9 @@ class Vault:
 
             return coffrechiffre.key
 
-    def getVaults(self, idUser):
-        identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.email == idUser).first()
+    def getVaults(self, uuidUser):
 
-        coffres = db.session.query(Coffre).join(Classeur).filter(Classeur.idUser == identifiantUtilistaure.idUser).all()
+        coffres = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == uuidUser).all()
         coffres_list = []
         for coffre in coffres:
             coffres_list.append(
@@ -69,17 +66,16 @@ class Vault:
 
         return coffres_list
 
-    def getVault(self, idUser, uuidCoffre):
-        identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.email == idUser).first()
-
-        coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.idUser == identifiantUtilistaure.idUser).filter(Coffre.uuidCoffre == uuidCoffre).first()
+    def getVault(self, uuidUser, uuidCoffre):
+        coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == uuidUser).filter(Coffre.uuidCoffre == uuidCoffre).first()
 
         return coffre
 
-    def updateVault(self, data,uuidCoffre,iduser):
-        identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.email == iduser).first()
+    def updateVault(self, data):
+        uuidcoffre = data["uuidCoffre"]
+        iduser = data["uuidUser"]
 
-        coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.idUser == identifiantUtilistaure.idUser).filter(Coffre.uuidCoffre == uuidCoffre).first()
+        coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == iduser).filter(Coffre.uuidCoffre == uuidcoffre).first()
 
         if not coffre:
             return None
@@ -101,10 +97,10 @@ class Vault:
             elif key == "note":
                 coffre.note = value
 
-        uuid_obj = uuid.UUID(data["userUUid"])
+        uuid1, uuid2 = self.tool.split_and_convert_two_uuids(str(iduser))
 
         # Convert UUID object to bytes
-        uuid_bytes = uuid_obj.bytes
+        uuid_bytes = uuid1.bytes + uuid2.bytes
 
         coffrechiffre = Chiffrement(uuid_bytes)
 
@@ -114,10 +110,17 @@ class Vault:
 
         return coffre
 
-    def deleteCoffre(self, idUser, uuidCoffre):
-        identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.email == idUser).first()
+    def deleteCoffre(self, uuidUser, uuidCoffre):
+        classeur = db.session.query(Classeur).filter(Classeur.uuidUser == uuidUser).filter(Classeur.uuidCoffre == uuidCoffre).first()
 
-        coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.idUser == identifiantUtilistaure.idUser).filter(Coffre.uuidCoffre == uuidCoffre).first()
+        if not classeur:
+            return None
+
+        db.session.delete(classeur)
+
+        db.session.commit()
+
+        coffre = db.session.query(Coffre).filter(Coffre.uuidCoffre == uuidCoffre).first()
 
         if not coffre:
             return None
@@ -128,21 +131,21 @@ class Vault:
 
         return coffre
 
-    def AssocierCategorie(self, idUser, idCategorie, idCoffre):
+    def AssocierCategorie(self, uuidUser, uuidCategorie, uuidCoffre):
         try:
             categories = CategoryController()
 
-            listcategoriesuser = categories.getCategoriesIdentifiant(idUser)
+            listcategoriesuser = categories.getCategoriesIdentifiant(uuidUser)
 
-            if idCategorie not in listcategoriesuser:
+            if uuidCategorie not in listcategoriesuser:
                 return jsonify({"status": "failed", "message": "Category not found"})
 
-            coffre = db.session.query(Coffre).filter(Coffre.uuidCoffre == idCoffre).first()
+            coffre = db.session.query(Coffre).filter(Coffre.uuidCoffre == uuidCoffre).first()
 
             if not coffre:
-                return jsonify({"status": "failed", "message": "Vault not found"})
+                return jsonify({"status": "failed", "message": "Coffre not found"})
 
-            coffre.idCategorie = idCategorie
+            coffre.uuidCategorie = uuidCategorie
 
             db.session.commit()
 
@@ -150,15 +153,15 @@ class Vault:
         except Exception as e:
             return jsonify({"status": "failed", "message": "Error adding category "+str(e)})
 
-    def removeCategorieFromVault(self, idUser, idCoffre):
+    def removeCategorieFromVault(self, uuidUser, uuidCoffre):
         try:
             # recupérer le coffre et faire une jointure avec l'utilisateur
-            coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.idUser == idUser).filter(Coffre.uuidCoffre == idCoffre).first()
+            coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == uuidUser).filter(Coffre.uuidCoffre == uuidCoffre).first()
 
             if not coffre:
                 return jsonify({"status": "failed", "message": "Vault not found"})
 
-            coffre.idCategorie = None
+            coffre.uuidCategorie = None
 
             db.session.commit()
 
@@ -170,17 +173,14 @@ class Vault:
 @jwt_required()
 def createVault():
     data = request.get_json()
-    idUser = get_jwt_identity()
+    uuidUser = get_jwt_identity()
     dictdata = json.dumps(data)
 
     # Convert the JSON string back to a Python dictionary
     dictdata = json.loads(dictdata)
 
     # Update the dictionary with the new key-value pair
-    dictdata.update({"idUser": idUser})
-
-    print("Data:",dictdata)
-
+    dictdata.update({"uuidUser": uuidUser})
 
     vault = Vault()
     key = vault.createVault(dictdata)
@@ -192,9 +192,9 @@ def createVault():
 @app.route("/vault/getall", methods=['GET'])
 @jwt_required()
 def getVaults():
-    idUser = get_jwt_identity()
+    uuidUser = get_jwt_identity()
     vault = Vault()
-    coffres = vault.getVaults(idUser)
+    coffres = vault.getVaults(uuidUser)
 
     return jsonify(coffres)
 
@@ -210,31 +210,38 @@ def getVault():
 
     data = request.get_json()
 
-    idUser = get_jwt_identity()
+    uuidUser = get_jwt_identity()
     uuidCoffre = data["uuidCoffre"]
 
     secretkey = data["secretkey"]
 
-    userUUid = data["userUUid"]
+    userUUidvalid = data["userUUid"] == uuidUser
+
+    if not userUUidvalid:
+        return jsonify({"status": "failed", "message": "Invalid user"})
 
     vault = Vault()
-    coffre = vault.getVault(idUser, uuidCoffre)
+    coffre = vault.getVault(uuidUser, uuidCoffre)
 
     if not coffre:
         return jsonify({"status": "failed", "message": "Vault not found"})
+    tool = Tools()
+    uuid1, uuid2 = tool.split_and_convert_two_uuids(str(uuidUser))
 
-    coffrechiffre = Chiffrement(uuid.UUID(userUUid).bytes)
+    uuidkey = uuid1.bytes + uuid2.bytes
+
+    coffrechiffre = Chiffrement(uuidkey)
 
     return jsonify(
         {
             "uuidCoffre": coffre.uuidCoffre,
-            "username": coffrechiffre.decrypt_password(coffre.username, secretkey.encode(), uuid.UUID(userUUid).bytes),
-            "email": coffrechiffre.decrypt_password(coffre.email, secretkey.encode(), uuid.UUID(userUUid).bytes),
-            "password": coffrechiffre.decrypt_password(coffre.password, secretkey.encode(), uuid.UUID(userUUid).bytes),
+            "username": coffrechiffre.decrypt_password(coffre.username, secretkey.encode(), uuidkey),
+            "email": coffrechiffre.decrypt_password(coffre.email, secretkey.encode(), uuidkey),
+            "password": coffrechiffre.decrypt_password(coffre.password, secretkey.encode(), uuidkey),
             "sitename": coffre.sitename,
             "urlsite": coffre.urlsite,
             "urllogo": coffre.urllogo,
-            "note": coffrechiffre.decrypt_password(coffre.note, secretkey.encode(), uuid.UUID(userUUid).bytes)
+            "note": coffrechiffre.decrypt_password(coffre.note, secretkey.encode(), uuidkey)
         }
     )
 
@@ -242,26 +249,20 @@ def getVault():
 @jwt_required()
 def updateVault():
     data = request.get_json()
-    idUser = get_jwt_identity()
+    uuidUser = get_jwt_identity()
 
 
     outils = Tools()
-    user = outils.userExist(idUser, data)
-    if user:
-        return user
 
     dictdata = json.dumps(data)
 
     # Convert the JSON string back to a Python dictionary
     dictdata = json.loads(dictdata)
 
-    # Update the dictionary with the new key-value pair
-    userId = outils.getUserUUID(idUser)
-
-    dictdata.update({"idUser": userId})
+    dictdata.update({"uuidUser": uuidUser})
 
     vault = Vault()
-    coffre = vault.updateVault(dictdata, dictdata["uuidCoffre"], idUser)
+    coffre = vault.updateVault(dictdata)
 
     if not coffre:
         return jsonify({"status": "failed", "message": "Vault not found"})
@@ -275,20 +276,10 @@ def deleteVault():
     data = request.get_json()
     idUser = get_jwt_identity()
 
-    outils = Tools()
-    user = outils.userExist(idUser, data)
-    if user:
-        return user
-
     dictdata = json.dumps(data)
 
     # Convert the JSON string back to a Python dictionary
     dictdata = json.loads(dictdata)
-
-    # Update the dictionary with the new key-value pair
-    userId = outils.getUserUUID(idUser)
-
-    dictdata.update({"idUser": userId})
 
     vault = Vault()
     coffre = vault.deleteCoffre(idUser, dictdata["uuidCoffre"])
@@ -303,25 +294,15 @@ def deleteVault():
 @jwt_required()
 def associerCategorie():
     data = request.get_json()
-    idUser = get_jwt_identity()
-
-    outils = Tools()
-    user = outils.userExist(idUser, data)
-    if user:
-        return user
+    uuidUser = get_jwt_identity()
 
     dictdata = json.dumps(data)
 
     # Convert the JSON string back to a Python dictionary
     dictdata = json.loads(dictdata)
 
-    # Update the dictionary with the new key-value pair
-    userId = outils.getUserId(idUser)
-
-    dictdata.update({"idUser": userId})
-
     vault = Vault()
-    res = vault.AssocierCategorie(dictdata["idUser"], dictdata["idCategorie"], dictdata["idCoffre"])
+    res = vault.AssocierCategorie(uuidUser, dictdata["uuidCategorie"], dictdata["uuidCoffre"])
 
     return res
 
@@ -329,24 +310,14 @@ def associerCategorie():
 @jwt_required()
 def removeCategorieFromVault():
     data = request.get_json()
-    idUser = get_jwt_identity()
-
-    outils = Tools()
-    user = outils.userExist(idUser, data)
-    if user:
-        return user
+    uuidUser = get_jwt_identity()
 
     dictdata = json.dumps(data)
 
     # Convert the JSON string back to a Python dictionary
     dictdata = json.loads(dictdata)
 
-    # Update the dictionary with the new key-value pair
-    userId = outils.getUserId(idUser)
-
-    dictdata.update({"idUser": userId})
-
     vault = Vault()
-    res = vault.removeCategorieFromVault(dictdata["idUser"],dictdata["idCoffre"])
+    res = vault.removeCategorieFromVault(uuidUser,dictdata["uuidCoffre"])
 
     return res
