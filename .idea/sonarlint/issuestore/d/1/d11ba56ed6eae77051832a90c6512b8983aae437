@@ -1,0 +1,6 @@
+
+“python:S117"WRename this local variable "userId" to match the regular expression ^[_a-z][a-z0-9_]*$.(íÃ–*J$02630562-2ee4-4324-9c68-590bc50bae12
+Špython:S100"MRename method "userExist" to match the regular expression ^[a-z_][a-z0-9_]*$.(µŸ­²J$99556a2a-a095-4afd-82f2-b607e29e311f
+“python:S117"WRename this local variable "userId" to match the regular expression ^[_a-z][a-z0-9_]*$.(íÃ–*J$13f88eef-48f3-473c-b49f-5ed7c5c98baa
+‘python:S100"ORename method "getUserUUID" to match the regular expression ^[a-z_][a-z0-9_]*$.(ıÜ®øÿÿÿÿJ$096fa6e1-9ebf-43fb-a670-698bac472558
+—python:S100"URename method "longUUIDGenerator" to match the regular expression ^[a-z_][a-z0-9_]*$.(ö‰ÆŒûÿÿÿÿJ$1728991b-ee83-49a4-ac41-b1fa2fcd155f
