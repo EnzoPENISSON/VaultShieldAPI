@@ -23,7 +23,7 @@ app.config['MAIL_USE_SSL'] = False
 
 mail = Mail(app)
 
-#server = "10.193.190.100"
+#server = "127.0.0.1"
 server = "127.0.0.1:3310"
 database = "bddvaultshield"
 username = "vaultuserAPI"
@@ -58,6 +58,8 @@ from .controllers.Vault import *
 from .controllers.UserController import *
 from .controllers.CategorieController import *
 from .controllers.GroupeController import *
+from .controllers.AdminControllers import *
+
 
 @app.route("/")
 def root():
