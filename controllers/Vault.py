@@ -3,14 +3,14 @@ import uuid
 from .Controller import ControllerClass as C
 from flask import jsonify, request
 from ..models.dataclass import Utilisateur, Coffre, Classeur
-from .tools import Tools
+from .utilitytool import UtilityTool
 from .CategorieController import CategoryController
 from .. import app
 from .. import db
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity, create_refresh_token, get_jwt
 from .Chiffrement import Chiffrement
 class Vault:
-    tool = Tools()
+    tool = UtilityTool()
     def createVault(self, data):
             # convert uuidkey to bytes
             uuid1, uuid2 = self.tool.split_and_convert_two_uuids(str(data["uuidUser"]))
@@ -225,7 +225,7 @@ def getVault():
 
     if not coffre:
         return jsonify({"status": "failed", "message": "Vault not found"})
-    tool = Tools()
+    tool = UtilityTool()
     uuid1, uuid2 = tool.split_and_convert_two_uuids(str(uuidUser))
 
     uuidkey = uuid1.bytes + uuid2.bytes
@@ -252,7 +252,7 @@ def updateVault():
     uuidUser = get_jwt_identity()
 
 
-    outils = Tools()
+    outils = UtilityTool()
 
     dictdata = json.dumps(data)
 

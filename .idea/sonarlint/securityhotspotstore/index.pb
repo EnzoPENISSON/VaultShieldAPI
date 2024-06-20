@@ -15,3 +15,15 @@ M
 __init__.py,6\0\60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e
 R
 "controllers/CategorieController.py,3\5\35248e16c5f2cdfd6f3a1600f06a7695a62bd041
+N
+controllers/Authcontrollers.py,f\1\f10395c74f98144508ad94c3350c8cb2cb4c73f1
+M
+templates/email_template.html,7\1\71081053585fc75f939ed3200e2906ca06082766
+J
+controllers/EmailSender.py,c\e\ce3f58695e7af0fda113ff66fff3b15b9bc19c1a
+J
+controllers/utilitytool.py,4\1\413ee09c8e9c82ba65108f178e390135c10e137f
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0

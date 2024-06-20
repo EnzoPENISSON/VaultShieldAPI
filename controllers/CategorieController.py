@@ -2,7 +2,7 @@ from .Controller import ControllerClass as C
 
 from flask import jsonify, request
 from ..models.dataclass import Categorie, Appartenir, Coffre, Classeur
-from .tools import Tools
+from .utilitytool import UtilityTool
 from .. import app
 from .. import db
 import bcrypt
@@ -10,7 +10,7 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 
 
 class CategoryController:
-    tool = Tools()
+    tool = UtilityTool()
     def ajouterCategorie(self, uuidUser, nomCategorie):
         try:
             categorie = Categorie(

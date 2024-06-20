@@ -3,11 +3,25 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
+
 # Enable CORS
 CORS(app, resources={r"/*": {"origins": "*"}})
+
+
+app.secret_key = 'lemeilleurcoffredemotdepassedumondevoirmemedelunivers'
+# Flask-Mail configuration
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'noreply.vaultshield@gmail.com'
+app.config['MAIL_PASSWORD'] = 'hsejnhohsibdecqn'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+
+mail = Mail(app)
 
 #server = "10.193.190.100"
 server = "127.0.0.1:3310"

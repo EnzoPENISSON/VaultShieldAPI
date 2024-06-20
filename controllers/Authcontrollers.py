@@ -1,15 +1,21 @@
 import json
-import time
+from datetime import datetime, timedelta
 from .Controller import ControllerClass as C
-from flask import jsonify, request
+from flask import jsonify, request, session
 from ..models.dataclass import Utilisateur
 from .. import app
 from .. import db
 import bcrypt
-from .tools import Tools
+from .utilitytool import UtilityTool
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity, create_refresh_token, get_jwt
+from .EmailSender import EmailSender
+from .. import mail
+
+
+
 class Authentification:
-    tool = Tools()
+    tool = UtilityTool()
+    mailer = EmailSender(mail)
 
     def login(self, email, password):
         listUser = db.session.query(Utilisateur).filter(Utilisateur.email == email)
@@ -73,10 +79,63 @@ class Authentification:
                     }
                 )
 
-        def send_email(self, email):
-            pass
-        def reset_password(self, email):
-            send_email(email)
+    def reset_password(self, email):
+        user = db.session.query(Utilisateur).filter(Utilisateur.email == email).first()
+        if not user:
+            return jsonify({"status": "failed", "message": "User not found"})
+
+        # Generate a new OTP
+        otp = self.tool.generate_otp()
+        user.OTP_code = otp
+        user.OTP_expired = datetime.now() + timedelta(minutes=5)
+        db.session.commit()
+
+        # Send the OTP to the user's email
+        self.mailer.send_otp(email, 'Code de verification', otp)
+
+        return jsonify({"status": "success", "message": "OTP sent to your email"})
+
+    def verify_otp(self, email, otp):
+        user = db.session.query(Utilisateur).filter(Utilisateur.email == email).first()
+        if not user:
+            return jsonify({"status": "failed", "message": "User not found"})
+
+        # Check if the OTP is valid
+        if user.OTP_code == otp and user.OTP_expired > datetime.now():
+            reset_token = self.tool.longUUIDGenerator() + "-" + self.tool.longUUIDGenerator()
+            reset_token_expiry = datetime.now() + timedelta(hours=1)
+            user.reset_token = reset_token
+            user.reset_token_expiry = reset_token_expiry
+            db.session.commit()
+
+            reset_url = f"http://127.0.0.1:8080/auth/change_password/{reset_token}"
+            return jsonify({"status": "success", "message": "OTP is valid", "urlreset": reset_url})
+        else:
+            return jsonify({"status": "failed", "message": "Invalid OTP"})
+
+    def change_password(self, reset_token, password, password_confirmation):
+        if password != password_confirmation:
+            return jsonify({"status": "failed", "message": "Passwords do not match"})
+
+        new_password = bcrypt.hashpw(bytes(password, 'utf-8'), bcrypt.gensalt())
+
+        if len(new_password) < 12 and not any(char.isdigit() for char in new_password):
+            return jsonify({"status": "failed", "message": "Password too short (12 characters minimum) and must contain at least one digit"})
+
+        user = db.session.query(Utilisateur).filter(Utilisateur.reset_token == reset_token).first()
+
+        if not user or user.reset_token_expiry < datetime.now():
+            return jsonify({"status": "failed", "message": "Invalid or expired reset token"})
+
+        # Update the user's password
+        user.password = new_password  # You should hash the password before storing it
+        user.reset_token = None
+        user.reset_token_expiry = None
+        user.OTP_code = None
+        user.OTP_expired = None
+        db.session.commit()
+
+        return jsonify({"status": "success", "message": "Password has been reset successfully"})
 
 
 auth = Authentification()
@@ -114,29 +173,6 @@ def protected():
 
     return auth.me(current_user)
 
-@app.route('/auth/refresh', methods=['POST'])
-@jwt_required(refresh=False)
-def refresh_token():
-    current_user = get_jwt_identity()  # Get the identity of the current user from the JWT token
-
-    # Check if the access token is expired
-    token_is_expired = get_jwt()['exp'] < time.time()
-
-    if token_is_expired:
-        # Check if the refresh token is expired
-        return jsonify(
-            success=False,
-            message="Access token is expired. Please reconnect."
-        ), 401
-    else:
-        temps = (get_jwt()['exp'] - time.time()) / 60
-        # convert the time in seconds to minutes
-        return jsonify(
-            success=True,
-            message="Access token is not expired. No need to refresh.",
-        ), 200
-
-
 @app.route('/auth/logout', methods=['POST'])
 @jwt_required()
 def logout():
@@ -150,3 +186,32 @@ def logout():
     db.session.commit()
 
     return jsonify(message="User logged out"), 200  # Respond with the new access token
+
+@app.route('/auth/reset_password', methods=['POST'])
+def reset_password():
+    paramettre = C.parametersissetPOST(['email'], request.json)
+    if not paramettre:
+        return jsonify({"status": "failed", "message": "Missing parameters"})
+
+    req_data = request.get_json(force=True)
+
+    return auth.reset_password(req_data['email'])
+
+@app.route('/auth/verify_otp', methods=['POST'])
+def verify_otp():
+    paramettre = C.parametersissetPOST(['email', 'otp'], request.json)
+    if not paramettre:
+        return jsonify({"status": "failed", "message": "Missing parameters"})
+
+    req_data = request.get_json(force=True)
+
+    return auth.verify_otp(req_data['email'], req_data['otp'])
+
+@app.route('/auth/change_password/<reset_token>', methods=['PUT'])
+def change_password(reset_token):
+    req_data = request.get_json(force=True)
+    new_password = req_data['new_password']
+    confirm_password = req_data['confirm_password']
+
+
+    return auth.change_password(reset_token,new_password, confirm_password)

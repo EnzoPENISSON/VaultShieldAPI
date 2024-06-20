@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="Création des groupes">
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="Ajout uuid base &#10;debut création group et partage utilisateur">
+      <change afterPath="$PROJECT_DIR$/controllers/EmailSender.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/email_template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6ceaa963e3c85726fb1172090c1d4801dbcc8896" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6ceaa963e3c85726fb1172090c1d4801dbcc8896" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/1/d11ba56ed6eae77051832a90c6512b8983aae437" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/1/d11ba56ed6eae77051832a90c6512b8983aae437" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f194b5ff42315c22992edec1e49867fa93750882" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f194b5ff42315c22992edec1e49867fa93750882" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/Authcontrollers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Authcontrollers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/CategorieController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CategorieController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Chiffrement.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Chiffrement.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/GroupeController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GroupeController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/UserController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/Vault.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Vault.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/brouillon.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/brouillon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/utilitytool.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +33,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -56,16 +64,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/enzop/PycharmProjects/VaultShieldApi/controllers&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.__init__.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/enzop/PycharmProjects/VaultShieldApi/controllers",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\enzop\PycharmProjects\VaultShieldApi\controllers" />
@@ -215,7 +227,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717941341371</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Ajout uuid base &#10;debut création group et partage utilisateur">
+      <option name="closed" value="true" />
+      <created>1718809495597</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1718809495597</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Ajout uuid base &#10;debut création group et partage utilisateur">
+      <option name="closed" value="true" />
+      <created>1718809525743</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1718809525743</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,7 +269,8 @@
     <MESSAGE value="ajout categorie" />
     <MESSAGE value="CRUD coffre categorie&#10;&#10;Et ajout champ username dans le coffre" />
     <MESSAGE value="Création des groupes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Création des groupes" />
+    <MESSAGE value="Ajout uuid base &#10;debut création group et partage utilisateur" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout uuid base &#10;debut création group et partage utilisateur" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

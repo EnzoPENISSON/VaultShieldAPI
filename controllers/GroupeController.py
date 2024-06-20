@@ -4,7 +4,7 @@ from .Controller import ControllerClass as C
 
 from flask import jsonify, request
 from ..models.dataclass import Groupe, Partager, Coffre, sharegroupe_users
-from .tools import Tools
+from .utilitytool import UtilityTool
 from .. import app
 from .. import db
 import bcrypt
@@ -12,7 +12,7 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 
 
 class GroupeController:
-    tool = Tools()
+    tool = UtilityTool()
     def ajouterGroup(self, uuidUser, nomGroup):
         try:
             group = Groupe(

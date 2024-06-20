@@ -45,6 +45,10 @@ class Utilisateur(Base):
     isAdmin = Column(TINYINT(1), nullable=False, server_default=text("0"))
     token = Column(String(512))
     last_co = Column(DateTime)
+    OTP_code = Column(String(8), nullable=True)
+    OTP_expired = Column(DateTime, nullable=True)
+    reset_token = Column(String(255), nullable=True)
+    reset_token_expiry = Column(DateTime, nullable=True)
 
 
 class Appartenir(Base):

@@ -1,18 +1,0 @@
-
-python:S117"RRename this parameter "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ„‚ŒJ$8453a08c-77cb-42ba-a63a-62c18a4d3a83
-‘python:S117"TRename this parameter "nomGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ„‚ŒJ$d92ab535-f102-49f4-a46f-e5314d8184d4
-python:S100"PRename method "ajouterGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ÿ„‚ŒJ$26648433-41f4-42f9-9efb-a11160c7c105
-”python:S117"RRename this parameter "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(®ó ”úÿÿÿÿJ$bd1bf91b-e65f-4e38-9659-2041f253ade5
-”python:S100"RRename method "getListsGroups" to match the regular expression ^[a-z_][a-z0-9_]*$.(®ó ”úÿÿÿÿJ$4d7a1d85-09a5-41ed-83c4-7a6d7ab3f537
-›python:S1179"YRename this local variable "idCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(µùâùÿÿÿÿJ$891817a4-7879-4814-91da-d01beed943d0
-python:S117-"SRename this parameter "idGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÂÇJ$252b3f57-d39e-4c6f-bc26-9dd0af6d3076
-python:S117-"RRename this parameter "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÂÇJ$c966e89d-bd2d-4773-a79b-7f5ba65bd339
-’python:S117-"URename this parameter "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÂÇJ$ecd65311-2cf1-4e21-9193-54b530cb6e75
-“python:S117-"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÂÇJ$6ae053d2-f29b-440d-8528-0f2fa0a33ffe
-python:S100-"QRename method "sharePassword" to match the regular expression ^[a-z_][a-z0-9_]*$.(øÂÇJ$c3f835fc-b2b0-4e0e-bad4-ae6379f8c461
-Œpython:S1542M"NRename function "addGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(¨ë‡™J$c174b9e1-f09f-4ffb-b404-d5e628fda78f
-python:S1542^"PRename function "listGroups" to match the regular expression ^[a-z_][a-z0-9_]*$.(Éª¿ŒJ$ab96d772-2cd3-4ab8-9fcf-78c245e23776
-›python:S117{"YRename this local variable "idCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(Öÿ›ÿÿÿÿÿJ$b425f498-eb4c-4a4a-a427-aec19d40e272
-”python:S117z"XRename this local variable "idGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÁ…IJ$f0db5149-cba1-46ec-a4dc-da6a3b9bca40
-—python:S117|"ZRename this local variable "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š¯í…J$e94702af-3cbc-4984-8fba-1defda6ea86a
-‘python:S1542m"SRename function "sharePassword" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶ßäJ$28a8e575-384a-4eb4-9e30-c7e5b57764cd

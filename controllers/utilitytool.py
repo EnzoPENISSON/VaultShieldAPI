@@ -1,10 +1,12 @@
+import string
 import uuid
+import random
 
 from flask import jsonify
 
 from .UserController import UserController
 
-class Tools:
+class UtilityTool:
     def userExist(self, email, data):
 
         utilisateur = UserController()
@@ -43,3 +45,9 @@ class Tools:
         uuid_obj2 = uuid.UUID(uuid_str2)
 
         return uuid_obj1, uuid_obj2
+
+    def generate_otp(self):
+        """Generate a 6-digit OTP"""
+        digits = string.digits
+        otp = ''.join(random.choice(digits) for _ in range(8))
+        return otp
