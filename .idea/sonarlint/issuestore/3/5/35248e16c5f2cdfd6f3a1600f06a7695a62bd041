@@ -1,21 +1,0 @@
-
-”python:S117"RRename this parameter "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(€íüıüÿÿÿÿJ$5d37c4c3-4d7d-4ec6-a185-7b1600c09ff5
-špython:S117"XRename this parameter "nomCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(€íüıüÿÿÿÿJ$5d382fa4-7fec-4f7f-b4cf-c5b070b411be
-–python:S100"TRename method "ajouterCategorie" to match the regular expression ^[a-z_][a-z0-9_]*$.(€íüıüÿÿÿÿJ$ebd65562-b4c6-4690-839e-1c7dfafe614d
-python:S117!"RRename this parameter "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤÷ÄÍJ$0c015d7d-69aa-4658-9ce1-968ae649ccd1
-™python:S100!"\Rename method "getCategoriesIdentifiant" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤÷ÄÍJ$7b9a2a6b-caca-4bac-a792-2ffc35ea354a
-”python:S117-"RRename this parameter "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(†ìúÿÿÿÿÿJ$755d2f8b-ffe3-4521-9fdc-c42c23e1561f
-“python:S100-"QRename method "getCategories" to match the regular expression ^[a-z_][a-z0-9_]*$.(†ìúÿÿÿÿÿJ$c6d1502e-c88e-4c7e-aa95-9a72d4799e81
-vpython:S1172<"3Remove the unused function parameter "idCategorie".(’³½ÕüÿÿÿÿJ$f960a8f0-652f-4813-82c9-99c4221017fd
-™python:S117<"WRename this parameter "idCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(’³½ÕüÿÿÿÿJ$f31ca15a-c0e0-4de9-9087-a304b63bda41
-”python:S117<"RRename this parameter "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(’³½ÕüÿÿÿÿJ$95f7d9ea-6fec-462c-b328-50b53584e9a5
-Ÿpython:S100<"]Rename method "getListVaultsWithCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(’³½ÕüÿÿÿÿJ$0bba5cac-4376-4c00-8f64-44dd316254fe
-”python:S117E"WRename this parameter "idCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ³úñJ$ad83fb1b-37f2-41e2-b72e-85aa9eee9e8f
-python:S117E"RRename this parameter "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ³úñJ$97d2f6f5-d444-411d-ad9d-710b3b64debe
-˜python:S117G"VRename this local variable "listV" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ó¥ÀûÿÿÿÿJ$ab52ec5d-556d-4a87-a24c-408f1a5bc646
-python:S100E"RRename method "removeCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ÿ³úñJ$a7d14c5f-7e29-47e3-af87-78e84af71525
-špython:S117c"]Rename this local variable "nomCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(É•¤½J$20628984-ce5f-4857-8d2f-f8f2d754298a
-python:S1542_"QRename function "addCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(±¦ƒÜJ$88ef4c0d-dcac-4bce-9972-adeb532a948d
-–python:S1542u"SRename function "getCategories" to match the regular expression ^[a-z_][a-z0-9_]*$.(—ËÊ‹ûÿÿÿÿJ$8fb4d5e4-e46a-4c53-91c4-83d18f6554bd
-špython:S117ˆ"\Rename this local variable "idCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(È¦ÀıJ$4da216f5-3391-406e-8da1-b86092155f9e
-˜python:S1542„"TRename function "removeCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÃìÎÙúÿÿÿÿJ$9a80b241-805a-4d56-afb9-05efbad4493e

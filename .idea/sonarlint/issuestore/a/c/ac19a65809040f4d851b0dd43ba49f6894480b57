@@ -1,8 +1,0 @@
-
-‘python:S1192/"NDefine a constant instead of duplicating this literal "Invalid email" 4 times.(ÊÈâ©ÿÿÿÿÿJ$83421a31-dd5c-405d-bd24-d45403327b7c
-›python:S117"YRename this local variable "listUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(éáÀâÿÿÿÿÿJ$55a9110a-79fe-49d4-b6b0-769d08554d19
-‘python:S100"ORename method "getUserUUID" to match the regular expression ^[a-z_][a-z0-9_]*$.(ıÜ®øÿÿÿÿJ$d7160c80-afd3-4864-9412-74a7bf57790d
-›python:S117"YRename this local variable "listUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(éáÀâÿÿÿÿÿJ$04cd5fbf-1f9b-4fa9-b8b3-acfb6bd2623d
-Œpython:S100"ORename method "getUserInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(¿Çİ’J$2fa51e88-9b6b-49a3-ba12-8537f52321db
-python:S1542("MRename function "getUUID" to match the regular expression ^[a-z_][a-z0-9_]*$.(üÇíÚøÿÿÿÿJ$7da5aef3-0427-4112-bbd8-3d7e7356630c
-python:S15429"QRename function "getUserInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(ã’¬’J$270a8023-703e-475c-99fc-2dab733153ee

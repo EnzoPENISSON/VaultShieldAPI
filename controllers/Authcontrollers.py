@@ -165,14 +165,6 @@ def register():
 
     return auth.register(req_data['email'],req_data['password'],req_data['username'])
 
-@app.route('/auth/me', methods=['GET'])
-@jwt_required()
-def protected():
-    current_user = get_jwt_identity()  # Get the identity of the current user from the JWT token
-
-
-    return auth.me(current_user)
-
 @app.route('/auth/logout', methods=['POST'])
 @jwt_required()
 def logout():

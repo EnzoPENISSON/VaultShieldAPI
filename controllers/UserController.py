@@ -15,8 +15,8 @@ class UserController:
         else:
             return None
 
-    def getUserInfo(self, email):
-        listUser = db.session.query(Utilisateur).filter(Utilisateur.email == email).first()
+    def getUserInfo(self, uuiduser):
+        listUser = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == uuiduser).first()
         if listUser:
             return jsonify(
                 {
@@ -38,17 +38,10 @@ User = UserController()
 @app.route("/user/getuuid", methods=['POST'])
 @jwt_required()
 def getUUID():
-    paramettre = C.parametersissetPOST(['email'], request.json)
-    if not paramettre:
-        return jsonify({"status": "failed", "message": "Missing parameters"})
-    email = request.json.get('email', None)
-    useremail = get_jwt_identity()
-    if email != useremail:
-        return jsonify({"status": "failed", "message": "Invalid email"})
+    uuiduser = get_jwt_identity()
 
-    if email:
-        res = User.getUserUUID(email)
-        return jsonify({"status": "success", "uuid": res})
+    if uuiduser is not None:
+        return jsonify({"status": "success", "uuid": uuiduser})
     else:
         return jsonify({"status": "failed", "message": "Invalid email"})
 
@@ -56,17 +49,8 @@ def getUUID():
 @jwt_required()
 def getUserInfo():
 
-    paramettre = C.parametersissetPOST(['email'], request.json)
-    if not paramettre:
-        return jsonify({"status": "failed", "message": "Missing parameters"})
-
-    email = request.json.get('email', None)
-
-    useremail = get_jwt_identity()
-    if email != useremail:
-        return jsonify({"status": "failed", "message": "Invalid email"})
-
-    if email:
-        return User.getUserInfo(email)
+    uuiduser = get_jwt_identity()
+    if uuiduser is not None:
+        return User.getUserInfo(uuiduser)
     else:
         return jsonify({"status": "failed", "message": "Invalid email"})
