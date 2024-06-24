@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="token url">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/1/d11ba56ed6eae77051832a90c6512b8983aae437" beforeDir="false" />
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="double bdd">
+      <change afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6ceaa963e3c85726fb1172090c1d4801dbcc8896" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6ceaa963e3c85726fb1172090c1d4801dbcc8896" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/1/d11ba56ed6eae77051832a90c6512b8983aae437" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Vault.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Vault.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AdminControllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AdminControllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/GroupeController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GroupeController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/utilitytool.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/utilitytool.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +50,9 @@
     &quot;accountId&quot;: &quot;ea0234fc-4fa4-4d66-9c57-c862d275fc91&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -73,6 +83,7 @@
       <recent name="C:\Users\enzop\PycharmProjects\VaultShieldApi\controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\enzop\PycharmProjects\VaultShieldApi" />
       <recent name="C:\Users\enzop\PycharmProjects\VaultShieldApi\models" />
     </key>
   </component>
@@ -265,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719215084192</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="double bdd">
+      <option name="closed" value="true" />
+      <created>1719218431668</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1719218431668</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -296,7 +315,8 @@
     <MESSAGE value="corrections" />
     <MESSAGE value="Admin :&#10;Set a user admin&#10;Liste all mdp chiffrer" />
     <MESSAGE value="token url" />
-    <option name="LAST_COMMIT_MESSAGE" value="token url" />
+    <MESSAGE value="double bdd" />
+    <option name="LAST_COMMIT_MESSAGE" value="double bdd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

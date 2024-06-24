@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 
 # Enable CORS
-CORS(app, resources={r"/*": {"origins": "*"}})
-
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 app.secret_key = 'lemeilleurcoffredemotdepassedumondevoirmemedelunivers'
 # Flask-Mail configuration

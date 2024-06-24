@@ -1,4 +1,5 @@
 import json
+import random
 from datetime import datetime, timedelta
 from .Controller import ControllerClass as C
 from flask import jsonify, request, session
@@ -12,8 +13,8 @@ from .EmailSender import EmailSender
 from .. import mail
 
 
-
 class AdminControllers:
+    tool = UtilityTool()
     def isUserAdmin(self, uuidUser):
         user = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == uuidUser).first()
         if user.isAdmin == 1:
@@ -60,7 +61,10 @@ class AdminControllers:
         for coffre in coffres:
             coffres_list.append(
                 {
-                    "password": coffre.password,
+                    "username": self.tool.generate_random_string(),
+                    "password": self.tool.generate_random_string(),
+                    "urlsite": coffre.urlsite,
+                    "urllogo": coffre.urllogo,
                 }
             )
 

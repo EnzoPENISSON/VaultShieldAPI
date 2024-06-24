@@ -1,3 +1,6 @@
+import random
+import string
+
 from flask import jsonify
 
 
@@ -8,3 +11,4 @@ class ControllerClass:
             if parameter not in datajson:
                 return False
         return True
+

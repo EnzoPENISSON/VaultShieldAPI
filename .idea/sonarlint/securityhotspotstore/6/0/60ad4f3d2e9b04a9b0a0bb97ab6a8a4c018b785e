@@ -1,0 +1,5 @@
+
+{python:S4502"1Make sure disabling CSRF protection is safe here.(«…‡ÿûÿÿÿÿ8¹©âĞ„2J$2d108893-d466-43ce-a4c7-bd2fa49b83ca
+}python:S5122"3Make sure this permissive CORS policy is safe here.(ò£»Áûÿÿÿÿ8–Î‰Ò„2J$9f96c3ef-ac31-4b62-b021-f9a12c7a2c2f
+python:S2068"H"password" detected here, review this potentially hard-coded credential.(ò³¦—8º©âĞ„2J$9a795e4b-b994-4299-807b-7d80a25050da
+Œpython:S2068"H"password" detected here, review this potentially hard-coded credential.(©—àt8½©âĞ„2J$e8bba33e-e05d-404d-b894-ccee13895ca3

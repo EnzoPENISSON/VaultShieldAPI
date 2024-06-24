@@ -29,3 +29,7 @@ S
 requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
 O
 controllers/AdminControllers.py,8\2\82adc130ad69737e928adb6a0d904a1162ed5397
+I
+controllers/Controller.py,e\d\ed062ea6965d1c467a13e41b38e0a877d2435d7e
+H
+sonar-project.properties,2\5\2538046035efb77ecc44e1fd2eec1e2641594d4c

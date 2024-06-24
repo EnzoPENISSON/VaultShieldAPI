@@ -51,3 +51,15 @@ class UtilityTool:
         digits = string.digits
         otp = ''.join(random.choice(digits) for _ in range(8))
         return otp
+
+    def generate_random_string(self):
+        # Generate a random number of elements between 1 and 10
+        num_elements = random.randint(10, 15)
+
+        # Create a list of random lowercase letters
+        elements = ["•" for _ in range(num_elements)]
+
+        # Join the elements with a period
+        result = "".join(elements)
+
+        return result

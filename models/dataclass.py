@@ -117,3 +117,16 @@ class tablekeyuser(db.Model):
     uuidUser = db.Column(db.String(100), primary_key=True)
     uuidCoffre = db.Column(db.String(100), primary_key=True)
     keyvault = db.Column(db.String(100), nullable=False)
+
+
+class tablekeygroupe(db.Model):
+    __bind_key__ = 'keyuser'
+    __table_args__ = {'extend_existing': True}
+    __tablename__ = 'tablekeygroupe'
+
+    uuidGroupe = db.Column(db.String(100), primary_key=True)
+    uuidCoffre = db.Column(db.String(100), primary_key=True)
+    keyvault = db.Column(db.String(100), nullable=False)
+    Created_Time = db.Column(db.DateTime, nullable=False, server_default=db.text("current_timestamp()"))
+    Expired_Time = db.Column(db.DateTime, nullable=True)
+
