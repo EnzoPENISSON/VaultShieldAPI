@@ -2,7 +2,7 @@ import json
 import uuid
 from .Controller import ControllerClass as C
 from flask import jsonify, request
-from ..models.dataclass import Utilisateur, Coffre, Classeur
+from ..models.dataclass import Utilisateur, Coffre, Classeur, tablekeyuser
 from .utilitytool import UtilityTool
 from .CategorieController import CategoryController
 from .. import app
@@ -49,7 +49,24 @@ class Vault:
 
             db.session.commit()
 
-            return coffrechiffre.key
+            # save key in keyvault
+            clef = tablekeyuser(
+                uuidUser = data["uuidUser"],
+                uuidCoffre = coffre.uuidCoffre,
+                keyvault = coffrechiffre.key
+            )
+
+            db.session.add(clef)
+
+            db.session.commit()
+
+    def getSecretKey(self, uuidUser, uuidCoffre):
+        clef = db.session.query(tablekeyuser).filter(tablekeyuser.uuidUser == uuidUser).filter(tablekeyuser.uuidCoffre == uuidCoffre).first()
+
+        if not clef:
+            return None
+
+        return clef.keyvault
 
     def getVaults(self, uuidUser):
 
@@ -183,10 +200,8 @@ def createVault():
     dictdata.update({"uuidUser": uuidUser})
 
     vault = Vault()
-    key = vault.createVault(dictdata)
-    # convert the key to string
-    key = key.decode()
-    return jsonify({"status": "success", "message": "Vault created", "secretKey": key}), 201
+    vault.createVault(dictdata)
+    return jsonify({"status": "success", "message": "Vault created"}), 201
 
 
 @app.route("/vault/getall", methods=['GET'])
@@ -321,3 +336,18 @@ def removeCategorieFromVault():
     res = vault.removeCategorieFromVault(uuidUser,dictdata["uuidCoffre"])
 
     return res
+
+
+@app.route("/vault/secretkey", methods=['POST'])
+@jwt_required()
+def getSecretKey():
+    data = request.get_json()
+    uuidUser = get_jwt_identity()
+
+    vault = Vault()
+    key = vault.getSecretKey(uuidUser, data["uuidCoffre"])
+
+    if not key:
+        return jsonify({"status": "failed", "message": "Key not found"})
+
+    return jsonify({"status": "success", "key": key})

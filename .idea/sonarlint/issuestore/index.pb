@@ -7,8 +7,6 @@ O
 controllers/GroupeController.py,5\c\5c5f70a034c27ee3e80374121f96ef8a5969a93d
 C
 models/brouillon.py,f\1\f194b5ff42315c22992edec1e49867fa93750882
-D
-controllers/tools.py,d\1\d11ba56ed6eae77051832a90c6512b8983aae437
 M
 controllers/UserController.py,a\c\ac19a65809040f4d851b0dd43ba49f6894480b57
 ;

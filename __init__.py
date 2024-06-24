@@ -26,13 +26,19 @@ mail = Mail(app)
 #server = "127.0.0.1"
 server = "127.0.0.1:3310"
 database = "bddvaultshield"
+database2 = "bddkeyvault"
 username = "vaultuserAPI"
 password = "UserVaultAPI*53"
 
 # générer la chaine utilisée pour accéder ä la base et
 param_bdd = "mysql+pymysql://"+username+":"+password+"@"+server+"/"+database
-#print(param_bdd)
+param_bdd2 = "mysql+pymysql://"+username+":"+password+"@"+server+"/"+database2
+
 app.config['SQLALCHEMY_DATABASE_URI'] = param_bdd
+app.config['SQLALCHEMY_BINDS'] = {
+    'keyuser': param_bdd2
+}
+
 # désactiver car gourmand en ressources
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # créer une instance de Ia base de données
@@ -43,11 +49,13 @@ app.config['JWT_SECRET_KEY'] = 'yhRHXnDfn%WozCcZziLNP#5wVwUK#5c46SZ7ZSxk'  # Cha
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 3600 # 1 hour
 
 jwt = JWTManager(app)
+
 db = SQLAlchemy(app)
 
 # check if the connection is successfully established or not
 with app.app_context():
     try:
+        db.create_all()
         db.session.execute(text('SELECT 1'))
         print('\n\nConnection successful !')
     except Exception as e:

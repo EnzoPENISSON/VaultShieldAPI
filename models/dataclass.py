@@ -1,105 +1,119 @@
 # coding: utf-8
-from sqlalchemy import Column, DateTime, ForeignKey, Index, String, Table, text
-from sqlalchemy.dialects.mysql import INTEGER, TINYINT
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.dialects.mssql import TINYINT
 
-Base = declarative_base()
-metadata = Base.metadata
+from .. import db
 
-
-class Categorie(Base):
+class Categorie(db.Model):
     __tablename__ = 'Categorie'
+    __table_args__ = {'extend_existing': True}
 
-    uuidCategorie = Column(String(100), primary_key=True)
-    libCategorie = Column(String(255), nullable=False)
+    uuidCategorie =  db.Column(db.String(100), primary_key=True)
+    libCategorie =  db.Column(db.String(255), nullable=False)
 
-class Groupe(Base):
+class Groupe(db.Model):
     __tablename__ = 'Groupe'
+    __table_args__ = {'extend_existing': True}
 
-    uuidGroupe = Column(String(100), primary_key=True)
-    uuidUserCreator  = Column(ForeignKey('Utilisateurs.uuidUser'), nullable=False,primary_key=True, index=True)
-    Nom = Column(String(50), nullable=False)
+    uuidGroupe =  db.Column(db.String(100), primary_key=True)
+    uuidUserCreator  =  db.Column(db.ForeignKey('Utilisateurs.uuidUser'), nullable=False,primary_key=True, index=True)
+    Nom =  db.Column(db.String(50), nullable=False)
 
-    Utilisateurs = relationship('Utilisateur')
+    Utilisateurs = db.relationship('Utilisateur')
 
-class Partager(Base):
+class Partager(db.Model):
     __tablename__ = 'Partager'
+    __table_args__ = {'extend_existing': True}
 
-    uuidGroupe = Column(ForeignKey('Groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
-    uuidCoffre = Column(ForeignKey('Coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
-    Created_Time = Column(DateTime, nullable=False, server_default=text("current_timestamp()"))
-    Expired_Time = Column(DateTime, nullable=True)
+    uuidGroupe = db.Column(db.ForeignKey('Groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
+    uuidCoffre = db.Column(db.ForeignKey('Coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
+    Created_Time = db.Column(db.DateTime, nullable=False, server_default=db.text("current_timestamp()"))
+    Expired_Time = db.Column(db.DateTime, nullable=True)
 
-    Groupe = relationship('Groupe')
-    Coffre = relationship('Coffre')
+    Groupe = db.relationship('Groupe')
+    Coffre = db.relationship('Coffre')
 
-class Utilisateur(Base):
+class Utilisateur(db.Model):
     __tablename__ = 'Utilisateurs'
+    __table_args__ = {'extend_existing': True}
 
     # idUser type UUID
-    uuidUser = Column(String(100),primary_key=True)
-    username = Column(String(255), nullable=False, unique=True)
-    email = Column(String(255), nullable=False, unique=True)
-    password = Column(String(512), nullable=False)
-    isAdmin = Column(TINYINT(1), nullable=False, server_default=text("0"))
-    token = Column(String(512))
-    last_co = Column(DateTime)
-    OTP_code = Column(String(8), nullable=True)
-    OTP_expired = Column(DateTime, nullable=True)
-    reset_token = Column(String(255), nullable=True)
-    reset_token_expiry = Column(DateTime, nullable=True)
+    uuidUser = db.Column(db.String(100),primary_key=True)
+    username = db.Column(db.String(255), nullable=False, unique=True)
+    email = db.Column(db.String(255), nullable=False, unique=True)
+    password = db.Column(db.String(512), nullable=False)
+    isAdmin = db.Column(TINYINT, nullable=False, server_default=db.text("0"))
+    token = db.Column(db.String(512))
+    last_co = db.Column(db.DateTime)
+    OTP_code = db.Column(db.String(8), nullable=True)
+    OTP_expired = db.Column(db.DateTime, nullable=True)
+    reset_token = db.Column(db.String(255), nullable=True)
+    reset_token_expiry = db.Column(db.DateTime, nullable=True)
 
 
-class Appartenir(Base):
+class Appartenir(db.Model):
     __tablename__ = 'Appartenir'
+    __table_args__ = {'extend_existing': True}
 
-    uuidUser = Column(ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=True, index=True)
-    uuidCategorie = Column(ForeignKey('Categorie.uuidCategorie'), primary_key=True, nullable=True, index=True)
+    uuidUser = db.Column(db.ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=True, index=True)
+    uuidCategorie = db.Column(db.ForeignKey('Categorie.uuidCategorie'), primary_key=True, nullable=True, index=True)
 
-    Categorie = relationship('Categorie')
-    Utilisateurs = relationship('Utilisateur')
+    Categorie = db.relationship('Categorie')
+    Utilisateurs = db.relationship('Utilisateur')
 
     def __str__(self):
         return "idUser: "+str(self.idUser)+" idCategorie: "+str(self.idCategorie)
 
-class Coffre(Base):
+class Coffre(db.Model):
     __tablename__ = 'Coffre'
+    __table_args__ = {'extend_existing': True}
 
-    uuidCoffre = Column(String(100), primary_key=True)
-    uuidCategorie = Column(ForeignKey('Categorie.uuidCategorie'), index=True)
-    username = Column(String(100), nullable=False)
-    email = Column(String(255), nullable=False)
-    password = Column(String(512), nullable=False)
-    sitename = Column(String(100), nullable=False)
-    urlsite = Column(String(512), nullable=False)
-    urllogo = Column(String(512), nullable=False)
-    note = Column(String(512), nullable=False)
+    uuidCoffre = db.Column(db.String(100), primary_key=True)
+    uuidCategorie = db.Column(db.ForeignKey('Categorie.uuidCategorie'), index=True)
+    username = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(255), nullable=False)
+    password = db.Column(db.String(512), nullable=False)
+    sitename = db.Column(db.String(100), nullable=False)
+    urlsite = db.Column(db.String(512), nullable=False)
+    urllogo = db.Column(db.String(512), nullable=False)
+    note = db.Column(db.String(512), nullable=False)
 
-    Categorie = relationship('Categorie')
+    Categorie = db.relationship('Categorie')
 
-class Classeur(Base):
+class Classeur(db.Model):
     __tablename__ = 'Classeur'
+    __table_args__ = {'extend_existing': True}
 
-    uuidUser = Column(ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=False)
-    uuidCoffre = Column(ForeignKey('Coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
+    uuidUser = db.Column(db.ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=False)
+    uuidCoffre = db.Column(db.ForeignKey('Coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
 
-    Coffre = relationship('Coffre')
-    Utilisateurs = relationship('Utilisateur')
+    Coffre = db.relationship('Coffre')
+    Utilisateurs = db.relationship('Utilisateur')
 
     def __str__(self):
         return "idUser: "+str(self.idUser)+" idCoffre: "+str(self.idCoffre)
 
-class sharegroupe_users(Base):
+class sharegroupe_users(db.Model):
     __tablename__ = 'sharegroupe_users'
+    __table_args__ = {'extend_existing': True}
 
-    uuidGroupe = Column(ForeignKey('Groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
-    uuidUser = Column(ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=False, index=True)
-    Shared_Time = Column(DateTime, nullable=False, server_default=text("current_timestamp()"))
-    Expired_Time = Column(DateTime, nullable=True)
+    uuidGroupe = db.Column(db.ForeignKey('Groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
+    uuidUser = db.Column(db.ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=False, index=True)
+    Shared_Time = db.Column(db.DateTime, nullable=False, server_default=db.text("current_timestamp()"))
+    Expired_Time = db.Column(db.DateTime, nullable=True)
 
-    Groupe = relationship('Groupe')
-    Utilisateurs = relationship('Utilisateur')
+    Groupe = db.relationship('Groupe')
+    Utilisateurs = db.relationship('Utilisateur')
 
     def __str__(self):
         return "idUser: "+str(self.idUser)+" idGroupe: "+str(self.idGroupe)
+
+
+
+class tablekeyuser(db.Model):
+    __bind_key__ = 'keyuser'
+    __table_args__ = {'extend_existing': True}
+    __tablename__ = 'tablekeyuser'
+
+    uuidUser = db.Column(db.String(100), primary_key=True)
+    uuidCoffre = db.Column(db.String(100), primary_key=True)
+    keyvault = db.Column(db.String(100), nullable=False)
