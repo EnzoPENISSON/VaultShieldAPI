@@ -108,8 +108,7 @@ class Authentification:
             user.reset_token_expiry = reset_token_expiry
             db.session.commit()
 
-            reset_url = f"http://127.0.0.1:8080/auth/change_password/{reset_token}"
-            return jsonify({"status": "success", "message": "OTP is valid", "urlreset": reset_url})
+            return jsonify({"status": "success", "message": "OTP is valid", "urlreset": reset_token})
         else:
             return jsonify({"status": "failed", "message": "Invalid OTP"})
 

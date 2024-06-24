@@ -30,11 +30,3 @@ class EmailSender:
 
     def send_otp(self, email,messagecontenttype, otp=None):
         return self.send_email(email, messagecontenttype, element=otp)
-
-# email_sender = EmailSender(mail)
-#
-# @app.route('/auth/send_email', methods=['POST'])
-# def send_email():
-#     req_data = request.get_json(force=True)
-#
-#     return email_sender.send_otp(req_data['email'])
