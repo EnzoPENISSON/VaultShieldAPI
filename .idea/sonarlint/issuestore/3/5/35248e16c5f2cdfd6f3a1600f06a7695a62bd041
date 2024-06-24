@@ -1,0 +1,21 @@
+
+vpython:S117"XRename this parameter "nomCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(√яҐ®8µдк÷Д2
+rpython:S117"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(√яҐ®8µдк÷Д2
+rpython:S100"TRename method "ajouterCategorie" to match the regular expression ^[a-z_][a-z0-9_]*$.(√яҐ®8Ќдк÷Д2
+rpython:S117$"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.( шБј8„дк÷Д2
+zpython:S100$"\Rename method "getCategoriesIdentifiant" to match the regular expression ^[a-z_][a-z0-9_]*$.( шБј8бдк÷Д2
+rpython:S1170"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЅВ≠й8ндк÷Д2
+opython:S1000"QRename method "getCategories" to match the regular expression ^[a-z_][a-z0-9_]*$.(ЅВ≠й8ндк÷Д2
+rpython:S117?"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ШЏ‘8ндк÷Д2
+{python:S100?"]Rename method "getListVaultsWithCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(£ШЏ‘8ндк÷Д2
+ypython:S117J"VRename this local variable "listV" to match the regular expression ^[_a-z][a-z0-9_]*$.( Ямґщ€€€€8ндк÷Д2
+wpython:S117H"YRename this parameter "uuidCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(џА№Є8ндк÷Д2
+rpython:S117H"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(џА№Є8ндк÷Д2
+ppython:S100H"RRename method "removeCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(џА№Є8ндк÷Д2
+{python:S117f"]Rename this local variable "nomCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Х§љ8ндк÷Д2
+wpython:S117g"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ыТк8ндк÷Д2
+ppython:S1542b"QRename function "addCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(±¶Г№8ндк÷Д2
+wpython:S1542r"SRename function "getCategories" to match the regular expression ^[a-z_][a-z0-9_]*$.(ЧЋ Лы€€€€8ндк÷Д2
+|python:S117}"^Rename this local variable "uuidCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬…Яµ8ндк÷Д2
+wpython:S117~"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ыТк8ндк÷Д2
+xpython:S1542y"TRename function "removeCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(√мќўъ€€€€8ндк÷Д2

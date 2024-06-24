@@ -77,6 +77,7 @@ class Vault:
                 {
                     "uuidCoffre": coffre.uuidCoffre,
                     "urlsite": coffre.urlsite,
+                    "sitename" : coffre.sitename,
                     "urllogo": coffre.urllogo,
                 }
             )
@@ -217,7 +218,7 @@ def getVaults():
 @app.route("/vault/get", methods=['POST'])
 @jwt_required()
 def getVault():
-    paramettre = C.parametersissetPOST(['uuidCoffre', 'secretkey', 'userUUid'], request.json)
+    paramettre = C.parametersissetPOST(['uuidCoffre', 'secretkey'], request.json)
 
     if not paramettre:
         return jsonify({"status": "failed", "message": "Missing parameters"})
@@ -229,11 +230,6 @@ def getVault():
     uuidCoffre = data["uuidCoffre"]
 
     secretkey = data["secretkey"]
-
-    userUUidvalid = data["userUUid"] == uuidUser
-
-    if not userUUidvalid:
-        return jsonify({"status": "failed", "message": "Invalid user"})
 
     vault = Vault()
     coffre = vault.getVault(uuidUser, uuidCoffre)
@@ -250,6 +246,7 @@ def getVault():
     return jsonify(
         {
             "uuidCoffre": coffre.uuidCoffre,
+            "uuidCategorie": coffre.uuidCategorie,
             "username": coffrechiffre.decrypt_password(coffre.username, secretkey.encode(), uuidkey),
             "email": coffrechiffre.decrypt_password(coffre.email, secretkey.encode(), uuidkey),
             "password": coffrechiffre.decrypt_password(coffre.password, secretkey.encode(), uuidkey),

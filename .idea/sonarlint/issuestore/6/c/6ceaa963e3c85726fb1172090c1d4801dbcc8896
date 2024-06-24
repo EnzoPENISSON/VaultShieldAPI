@@ -1,42 +1,41 @@
 
-–python:S1192³"PDefine a constant instead of duplicating this literal "Vault not found" 4 times.(ËõÃ8¨¬âĞ„2J$cc132a9e-6125-44ed-81b5-a80421a0987c
-°python:S117("gRename this local variable "identifiantUtilistaure" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ˜Ÿîşÿÿÿÿ8©¬âĞ„2J$641cdc2f-6fb0-4ec9-bda1-9d2daaca403c
-“python:S100"ORename method "createVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(åä¹İ8©¬âĞ„2J$bc1957bf-835c-43a2-a9dd-4431bcd1f0be
-Ÿpython:S117?"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Èú²ıÿÿÿÿ8ª¬âĞ„2J$5282571c-410f-4015-85b2-c8d0e31c4777
-python:S117?"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Èú²ıÿÿÿÿ8ª¬âĞ„2J$ee8852a6-e6c3-42d7-b1ed-a23808e75625
-™python:S100?"PRename method "getSecretKey" to match the regular expression ^[a-z_][a-z0-9_]*$.(½Èú²ıÿÿÿÿ8ª¬âĞ„2J$7242f1e8-93c4-424c-b426-b824257b9b47
-python:S117G"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆÕÀÖşÿÿÿÿ8«¬âĞ„2J$752f9931-cccd-430f-a626-be441ac2bfc0
-–python:S100G"MRename method "getVaults" to match the regular expression ^[a-z_][a-z0-9_]*$.(ˆÕÀÖşÿÿÿÿ8«¬âĞ„2J$a4395c9d-10d9-4b28-a8cb-dc602c8a58dc
-špython:S117V"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥¦ôœ8¬¬âĞ„2J$cfd68c65-cc76-413c-b205-5ae214701d60
-˜python:S117V"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥¦ôœ8¬¬âĞ„2J$3a455e24-20f4-4338-a3f7-83daad982d9c
-python:S100V"LRename method "getVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(¥¦ôœ8¬¬âĞ„2J$c8b674ac-6a37-4a7e-a612-ba57280ea7b8
-“python:S100["ORename method "updateVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(–û‰‡8­¬âĞ„2J$0295534a-db9d-4db7-954b-163eec4ce696
-›python:S117‚"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶¼ƒ8­¬âĞ„2J$b85de4d6-6db3-440f-8fcb-b554c3604752
-™python:S117‚"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶¼ƒ8­¬âĞ„2J$9bde6923-1693-4a57-9e42-4b8c96cfb0e2
-•python:S100‚"PRename method "deleteCoffre" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶¼ƒ8®¬âĞ„2J$324debd4-88b2-49cc-af26-56c4c2c600e1
-python:S117—"YRename this parameter "uuidCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(…è¯º8®¬âĞ„2J$8e61397a-f70a-4c44-a43d-f74a57f0b43e
-›python:S117—"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(…è¯º8®¬âĞ„2J$e6d5d3db-0083-47e9-92fc-f2ca4808bbb6
-™python:S117—"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(…è¯º8®¬âĞ„2J$8d23576b-8a91-4d5e-a9f7-37e7ca2b6ca7
-špython:S100—"URename method "AssocierCategorie" to match the regular expression ^[a-z_][a-z0-9_]*$.(…è¯º8°¬âĞ„2J$924de94c-20b5-47f6-9046-a16430f11618
-›python:S117­"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰âÉó8°¬âĞ„2J$6f9d1451-3543-4d35-8636-ea3411561ca9
-™python:S117­"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰âÉó8±¬âĞ„2J$bb864b8d-d04e-4e8f-ac86-1352a42ebd78
-¡python:S100­"\Rename method "removeCategorieFromVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰âÉó8±¬âĞ„2J$1d3ba4f2-1b3c-4f31-9b8f-88bad47a542e
-python:S117Á"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8±¬âĞ„2J$aebedfdd-273e-49d3-8635-90609d40817b
-—python:S1542¿"QRename function "createVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(õŞù£8±¬âĞ„2J$598a5e82-0619-40b9-bb0d-a876bd4c379f
-python:S117Ò"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8±¬âĞ„2J$f06614c5-73de-43ce-8ee2-1961d2007674
-špython:S1542Ñ"ORename function "getVaults" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹î Ÿùÿÿÿÿ8²¬âĞ„2J$88b751f1-59db-4da0-99fb-6e07e5387cdd
-£python:S117é"^Rename this local variable "userUUidvalid" to match the regular expression ^[_a-z][a-z0-9_]*$.(·º ¨8·¬âĞ„2J$082bedcc-7c96-454b-b4e6-122daafd1f6b
- python:S117å"[Rename this local variable "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(±ĞÚ¸8Ç¬âĞ„2J$a5d8a2bc-db7a-4c37-ad41-f0ccad934e8f
-python:S117ä"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8Ç¬âĞ„2J$31ef3ff8-76e5-4e4f-b960-ea756085ce24
-”python:S1542Û"NRename function "getVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(¼’¡8Ç¬âĞ„2J$19ae60c9-5328-4300-a17c-94e1ffeae136
-python:S117‹"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8Ç¬âĞ„2J$1a391fc4-a454-478d-b6d8-4ee26ee85ef2
-–python:S1542‰"QRename function "updateVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(È“/8È¬âĞ„2J$4757f501-f34b-4cd5-8af7-cc0dfc0bb1d8
-upython:S1481"*Remove the unused local variable "outils".(×¶ò¯ùÿÿÿÿ8Ì¬âĞ„2J$b292b4db-ef95-45af-9a89-bc42519b92fb
-œpython:S117¤"WRename this local variable "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(éÖÃ·8×¬âĞ„2J$bdf11ab4-4695-4834-af88-4b4119cbb8cb
-—python:S1542¢"QRename function "deleteVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï‹®³8Ø¬âĞ„2J$77ce8562-1761-4e53-b059-c81fd6ad2068
-python:S117¸"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8Ø¬âĞ„2J$66202f97-b1cd-4295-b1e8-3b4557fdc890
-python:S1542¶"WRename function "associerCategorie" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÍÌú8Ø¬âĞ„2J$29be2fda-629a-4089-bc88-cb77c6219440
-python:S117È"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8Ø¬âĞ„2J$46a07665-bffe-4c7e-b386-7ef8e3c22c74
-¤python:S1542Æ"^Rename function "removeCategorieFromVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒ¡şº8Ø¬âĞ„2J$4194d2bb-8d73-4aa0-a460-7280df36f192
-python:S117Ù"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8Ù¬âĞ„2J$2834e461-1021-4e6d-b359-39b1eba85bbf
-python:S1542×"RRename function "getSecretKey" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÔµÌøÿÿÿÿ8Ù¬âĞ„2J$23c2ae1b-569a-4766-8374-3e0b8e8858a7
+–python:S1192´"PDefine a constant instead of duplicating this literal "Vault not found" 4 times.(ËõÃ8í¬Ô„2J$0cde3420-23ae-4fde-b8a0-e144891e19b1
+°python:S117("gRename this local variable "identifiantUtilistaure" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ˜Ÿîşÿÿÿÿ8ï¬Ô„2J$d260633a-e090-4052-b970-5b5a3c5fb975
+“python:S100"ORename method "createVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(åä¹İ8ñ¬Ô„2J$036d345e-d13d-4142-a7f1-2e7d9b6126d6
+Ÿpython:S117?"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Èú²ıÿÿÿÿ8ñ¬Ô„2J$b6c7dd59-4c48-444f-9532-7f27107ef374
+python:S117?"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Èú²ıÿÿÿÿ8ñ¬Ô„2J$8d491eb3-dcc4-479f-88a6-6139df84add7
+™python:S100?"PRename method "getSecretKey" to match the regular expression ^[a-z_][a-z0-9_]*$.(½Èú²ıÿÿÿÿ8ñ¬Ô„2J$e03356be-1f0b-44a7-b2b0-8ff4d754a24b
+python:S117G"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆÕÀÖşÿÿÿÿ8ñ¬Ô„2J$62d1c8c0-59e7-494d-aeff-c99564efe524
+–python:S100G"MRename method "getVaults" to match the regular expression ^[a-z_][a-z0-9_]*$.(ˆÕÀÖşÿÿÿÿ8ñ¬Ô„2J$b76da14a-bdac-485b-88df-c46677f35505
+špython:S117W"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥¦ôœ8ñ¬Ô„2J$cda5f8bf-83a3-46ce-84e1-230f04bc86a6
+˜python:S117W"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥¦ôœ8ñ¬Ô„2J$5fb0f75d-646e-4766-8ded-d02d16a761eb
+python:S100W"LRename method "getVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(¥¦ôœ8ñ¬Ô„2J$27aa0583-a9ac-4f1a-ae60-4a26e3701a6d
+“python:S100\"ORename method "updateVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(–û‰‡8ò¬Ô„2J$df761efc-0de3-4a38-9fa1-4f820d263804
+›python:S117ƒ"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶¼ƒ8ò¬Ô„2J$da3c2fbf-f084-4cb5-9991-60a5df872105
+™python:S117ƒ"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶¼ƒ8ò¬Ô„2J$6640431c-3ff9-4591-b276-d036bf66dcd2
+•python:S100ƒ"PRename method "deleteCoffre" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶¼ƒ8ò¬Ô„2J$e90c0a0d-7616-45ca-8ab9-99888d850850
+python:S117˜"YRename this parameter "uuidCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(…è¯º8ò¬Ô„2J$c606e584-f573-4fc4-8eeb-0c9a3b63cf01
+›python:S117˜"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(…è¯º8ò¬Ô„2J$06098b2d-c995-4eaf-bbca-7c7f1f3c28f5
+™python:S117˜"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(…è¯º8ò¬Ô„2J$3e71f6ba-ea7e-4a65-9b4f-4dd7ab41d929
+špython:S100˜"URename method "AssocierCategorie" to match the regular expression ^[a-z_][a-z0-9_]*$.(…è¯º8ò¬Ô„2J$64edad7f-c29e-44ad-b28c-971ab77da182
+›python:S117®"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰âÉó8ò¬Ô„2J$8237c364-3bd6-4b17-9fb5-3ac8ac29a498
+™python:S117®"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰âÉó8ò¬Ô„2J$dbd03f80-8eb9-427f-861e-79b4e1a747f5
+¡python:S100®"\Rename method "removeCategorieFromVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰âÉó8ò¬Ô„2J$8f8faa0b-49ef-4ce4-ab6e-a13acd4f20ac
+python:S117Â"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8ò¬Ô„2J$87c5b425-8cc3-4cf6-9209-7ba42c57bd3a
+—python:S1542À"QRename function "createVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(õŞù£8ó¬Ô„2J$52caae6a-65f2-446b-97a2-e9f48a9329a1
+python:S117Ó"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8ó¬Ô„2J$216aefe7-a54e-4918-a635-12f9add2fd56
+špython:S1542Ò"ORename function "getVaults" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹î Ÿùÿÿÿÿ8ó¬Ô„2J$ad54bd24-4484-468c-bc17-6815449a65f8
+ python:S117æ"[Rename this local variable "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(±ĞÚ¸8ó¬Ô„2J$9011914b-1e82-4a04-b460-25c7a38aa3b3
+python:S117å"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8ó¬Ô„2J$b279fd97-1619-4c60-bfa7-aba36a5dae1e
+”python:S1542Ü"NRename function "getVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(¼’¡8ó¬Ô„2J$ae30ed97-7347-4550-9e74-ca4217df9f18
+python:S117ˆ"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8ó¬Ô„2J$f76dad54-8c2c-4bc9-b797-9c6f628d92da
+–python:S1542†"QRename function "updateVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(È“/8ó¬Ô„2J$c23912d8-3c2e-45e6-bf9c-f5b505bf9177
+upython:S1481‹"*Remove the unused local variable "outils".(×¶ò¯ùÿÿÿÿ8õ¬Ô„2J$6e081ecd-5b16-4dfd-8bae-6453295f8e9d
+œpython:S117¡"WRename this local variable "idUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(éÖÃ·8÷¬Ô„2J$4d5f85c9-8be2-46a3-bcf2-39cb6e392ccd
+—python:S1542Ÿ"QRename function "deleteVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï‹®³8÷¬Ô„2J$06443f66-ac37-4a46-9ca5-4a945226acdb
+python:S117µ"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8÷¬Ô„2J$c1158b39-be7a-4af1-a0db-84ec5f612c43
+python:S1542³"WRename function "associerCategorie" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÍÌú8÷¬Ô„2J$b3dfe9f2-9eb7-45b5-8e7d-0f58a33eda8f
+python:S117Å"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8÷¬Ô„2J$3ddf4304-a653-4fbb-a0e4-e182e41d2c6f
+¤python:S1542Ã"^Rename function "removeCategorieFromVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒ¡şº8÷¬Ô„2J$3b5be895-b98d-4c7d-b21e-82d2896dacfa
+python:S117Ö"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8÷¬Ô„2J$087e834f-e42d-4a8c-9005-f49bbebfc4e0
+python:S1542Ô"RRename function "getSecretKey" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÔµÌøÿÿÿÿ8÷¬Ô„2J$9d32a3be-ef06-424b-89c8-42fac871c2bc

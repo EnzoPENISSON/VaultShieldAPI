@@ -170,7 +170,7 @@ def logout():
     current_user = get_jwt_identity()
 
     # Update the token in the database
-    user = db.session.query(Utilisateur).filter(Utilisateur.uuidUserç == current_user).first()
+    user = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == current_user).first()
     user.token = None
     user.token_refresh = None
     user.token_refresh_exp = None
