@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="double bdd">
-      <change afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" afterDir="false" />
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="cors 2">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6ceaa963e3c85726fb1172090c1d4801dbcc8896" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6ceaa963e3c85726fb1172090c1d4801dbcc8896" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/0/60ad4f3d2e9b04a9b0a0bb97ab6a8a4c018b785e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AdminControllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AdminControllers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/GroupeController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GroupeController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/utilitytool.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/utilitytool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Authcontrollers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Authcontrollers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719218431668</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="cors 2">
+      <option name="closed" value="true" />
+      <created>1719232837769</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1719232837769</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,7 +314,8 @@
     <MESSAGE value="Admin :&#10;Set a user admin&#10;Liste all mdp chiffrer" />
     <MESSAGE value="token url" />
     <MESSAGE value="double bdd" />
-    <option name="LAST_COMMIT_MESSAGE" value="double bdd" />
+    <MESSAGE value="cors 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="cors 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
