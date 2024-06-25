@@ -4,36 +4,36 @@ from sqlalchemy.dialects.mssql import TINYINT
 from .. import db
 
 class Categorie(db.Model):
-    __tablename__ = 'categorie'
+    __tablename__ = 'Categorie'
     __table_args__ = {'extend_existing': True}
 
     uuidCategorie =  db.Column(db.String(100), primary_key=True)
     libCategorie =  db.Column(db.String(255), nullable=False)
 
 class Groupe(db.Model):
-    __tablename__ = 'groupe'
+    __tablename__ = 'Groupe'
     __table_args__ = {'extend_existing': True}
 
     uuidGroupe =  db.Column(db.String(100), primary_key=True)
-    uuidUserCreator  =  db.Column(db.ForeignKey('utilisateurs.uuidUser'), nullable=False,primary_key=True, index=True)
+    uuidUserCreator  =  db.Column(db.ForeignKey('Utilisateurs.uuidUser'), nullable=False,primary_key=True, index=True)
     Nom =  db.Column(db.String(50), nullable=False)
 
-    Utilisateurs = db.relationship('utilisateurs')
+    Utilisateurs = db.relationship('Utilisateur')
 
 class Partager(db.Model):
-    __tablename__ = 'partager'
+    __tablename__ = 'Partager'
     __table_args__ = {'extend_existing': True}
 
-    uuidGroupe = db.Column(db.ForeignKey('groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
-    uuidCoffre = db.Column(db.ForeignKey('coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
+    uuidGroupe = db.Column(db.ForeignKey('Groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
+    uuidCoffre = db.Column(db.ForeignKey('Coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
     Created_Time = db.Column(db.DateTime, nullable=False, server_default=db.text("current_timestamp()"))
     Expired_Time = db.Column(db.DateTime, nullable=True)
 
-    Groupe = db.relationship('groupe')
-    Coffre = db.relationship('coffre')
+    Groupe = db.relationship('Groupe')
+    Coffre = db.relationship('Coffre')
 
 class Utilisateur(db.Model):
-    __tablename__ = 'utilisateurs'
+    __tablename__ = 'Utilisateurs'
     __table_args__ = {'extend_existing': True}
 
     # idUser type UUID
@@ -51,24 +51,24 @@ class Utilisateur(db.Model):
 
 
 class Appartenir(db.Model):
-    __tablename__ = 'appartenir'
+    __tablename__ = 'Appartenir'
     __table_args__ = {'extend_existing': True}
 
-    uuidUser = db.Column(db.ForeignKey('utilisateurs.uuidUser'), primary_key=True, nullable=True, index=True)
-    uuidCategorie = db.Column(db.ForeignKey('categorie.uuidCategorie'), primary_key=True, nullable=True, index=True)
+    uuidUser = db.Column(db.ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=True, index=True)
+    uuidCategorie = db.Column(db.ForeignKey('Categorie.uuidCategorie'), primary_key=True, nullable=True, index=True)
 
-    Categorie = db.relationship('categorie')
-    Utilisateurs = db.relationship('utilisateurs')
+    Categorie = db.relationship('Categorie')
+    Utilisateurs = db.relationship('Utilisateur')
 
     def __str__(self):
         return "idUser: "+str(self.uuidUser)+" idCategorie: "+str(self.uuidCategorie)
 
 class Coffre(db.Model):
-    __tablename__ = 'coffre'
+    __tablename__ = 'Coffre'
     __table_args__ = {'extend_existing': True}
 
     uuidCoffre = db.Column(db.String(100), primary_key=True)
-    uuidCategorie = db.Column(db.ForeignKey('categorie.uuidCategorie'), index=True)
+    uuidCategorie = db.Column(db.ForeignKey('Categorie.uuidCategorie'), index=True)
     username = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(255), nullable=False)
     password = db.Column(db.String(512), nullable=False)
@@ -77,17 +77,17 @@ class Coffre(db.Model):
     urllogo = db.Column(db.String(512), nullable=False)
     note = db.Column(db.String(512), nullable=False)
 
-    Categorie = db.relationship('categorie')
+    Categorie = db.relationship('Categorie')
 
 class Classeur(db.Model):
-    __tablename__ = 'classeur'
+    __tablename__ = 'Classeur'
     __table_args__ = {'extend_existing': True}
 
-    uuidUser = db.Column(db.ForeignKey('utilisateurs.uuidUser'), primary_key=True, nullable=False)
-    uuidCoffre = db.Column(db.ForeignKey('coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
+    uuidUser = db.Column(db.ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=False)
+    uuidCoffre = db.Column(db.ForeignKey('Coffre.uuidCoffre'), primary_key=True, nullable=False, index=True)
 
-    Coffre = db.relationship('coffre')
-    Utilisateurs = db.relationship('utilisateurs')
+    Coffre = db.relationship('Coffre')
+    Utilisateurs = db.relationship('Utilisateur')
 
     def __str__(self):
         return "idUser: "+str(self.uuidUser)+" idCoffre: "+str(self.uuidCoffre)
@@ -96,13 +96,13 @@ class sharegroupe_users(db.Model):
     __tablename__ = 'sharegroupe_users'
     __table_args__ = {'extend_existing': True}
 
-    uuidGroupe = db.Column(db.ForeignKey('groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
-    uuidUser = db.Column(db.ForeignKey('utilisateurs.uuidUser'), primary_key=True, nullable=False, index=True)
+    uuidGroupe = db.Column(db.ForeignKey('Groupe.uuidGroupe'), primary_key=True, nullable=False, index=True)
+    uuidUser = db.Column(db.ForeignKey('Utilisateurs.uuidUser'), primary_key=True, nullable=False, index=True)
     Shared_Time = db.Column(db.DateTime, nullable=False, server_default=db.text("current_timestamp()"))
     Expired_Time = db.Column(db.DateTime, nullable=True)
 
-    Groupe = db.relationship('groupe')
-    Utilisateurs = db.relationship('utilisateurs')
+    Groupe = db.relationship('Groupe')
+    Utilisateurs = db.relationship('Utilisateur')
 
     def __str__(self):
         return "idUser: "+str(self.idUser)+" idGroupe: "+str(self.idGroupe)
@@ -129,4 +129,3 @@ class tablekeygroupe(db.Model):
     keyvault = db.Column(db.String(100), nullable=False)
     Created_Time = db.Column(db.DateTime, nullable=False, server_default=db.text("current_timestamp()"))
     Expired_Time = db.Column(db.DateTime, nullable=True)
-

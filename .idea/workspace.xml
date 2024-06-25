@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="corriger erreur">
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="corriger erreur dataclass.py">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
@@ -365,7 +365,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719304800447</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="corriger erreur dataclass.py">
+      <option name="closed" value="true" />
+      <created>1719308437519</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1719308437520</updated>
+    </task>
+    <task id="LOCAL-00026" summary="corriger erreur dataclass.py">
+      <option name="closed" value="true" />
+      <created>1719308601829</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1719308601829</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -401,7 +417,8 @@
     <MESSAGE value="cors 2" />
     <MESSAGE value="erreurs corriger" />
     <MESSAGE value="corriger erreur" />
-    <option name="LAST_COMMIT_MESSAGE" value="corriger erreur" />
+    <MESSAGE value="corriger erreur dataclass.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="corriger erreur dataclass.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
