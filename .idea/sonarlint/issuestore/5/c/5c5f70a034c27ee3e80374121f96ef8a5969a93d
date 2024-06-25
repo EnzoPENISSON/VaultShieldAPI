@@ -1,26 +1,34 @@
 
-˜python:S117"TRename this parameter "nomGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú¡è8ÕÛŒÑ„2J$8ae2bbb9-0fdd-4bcb-a5d9-1178a64ae8b8
-˜python:S117"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú¡è8×ÛŒÑ„2J$08eeb8fb-8a1c-4838-ade5-25810f8e736a
-”python:S100"PRename method "ajouterGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(ú¡è8×ÛŒÑ„2J$268ab5e0-54ee-4ec7-9f97-3d37f86c90a4
-python:S117 "TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õå¤ûùÿÿÿÿ8ØÛŒÑ„2J$9ab6189b-cf88-4706-99f1-65efcaff2632
-›python:S100 "RRename method "getListsGroups" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õå¤ûùÿÿÿÿ8ØÛŒÑ„2J$949d51ad-bcf3-4af0-b0a6-7cede7d25724
-™python:S1179"URename this parameter "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ğµó8ØÛŒÑ„2J$7e9591a0-cc96-40fc-90ea-4e38e37f5065
-™python:S1179"URename this parameter "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ğµó8ØÛŒÑ„2J$b37e3207-32d2-4ea7-a7d6-de203541110e
-Ÿpython:S1179"[Rename this parameter "uuidUserRequest" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ğµó8ØÛŒÑ„2J$b8ef6699-7102-4843-8f73-d1705e8c43be
-–python:S1009"RRename method "sharegroupUser" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬ğµó8ØÛŒÑ„2J$bf77be7d-9231-4f29-83e4-1a8746d16c6f
-¡python:S117e"]Rename this local variable "getSecretKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆÿ£8ÚÛŒÑ„2J$b3cd2d0e-1624-4d98-8175-e04c8cc9185c
-python:S117R"URename this parameter "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8İÛŒÑ„2J$a373056f-605f-461a-87f9-d8509fe030c4
-Ÿpython:S117R"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8ÚÛŒÑ„2J$a9fad52f-d720-40ff-a88d-f0b5441e27b7
-python:S117R"URename this parameter "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8ÚÛŒÑ„2J$65775537-f5ab-438a-9296-81948f26918e
-python:S117R"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8ÚÛŒÑ„2J$f6142829-2336-41fc-95c3-e29a6d5a7232
-špython:S100R"QRename method "addVaultGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8ÚÛŒÑ„2J$7b106b2e-d18c-4984-becc-eb97279c5b7d
-“python:S1542"NRename function "addGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(¨ë‡™8ÛÑ„2J$e25e1187-05aa-4945-a990-925bff9a23a4
-python:S117‹"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8ÛÑ„2J$44d6b507-9c8c-4e16-97d4-cff1065adae2
-–python:S1542‰"PRename function "listGroups" to match the regular expression ^[a-z_][a-z0-9_]*$.(Éª¿Œ8ÛÑ„2J$29270fa1-ed22-4e3a-b22d-f7a528853386
-Ÿpython:S117Ÿ"ZRename this local variable "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹¥£±8º±ÖÑ„2J$4523cdb1-a93b-4701-8288-8900a12ad22d
-Ÿpython:S117"ZRename this local variable "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¾ˆî8ÛÑ„2J$cd686d76-7eb2-48d7-a8c7-b6b234ebec8a
-œpython:S1542•"VRename function "shareGrouptoUser" to match the regular expression ^[a-z_][a-z0-9_]*$.(“äÌÕ8ÛÑ„2J$ff414ac1-4aae-4427-ba9a-832f680fc5f5
-Ÿpython:S117°"ZRename this local variable "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹¥£±8ÛÑ„2J$24eb9f2d-9222-4cd7-85e5-d153814c0e2b
- python:S117¯"[Rename this local variable "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê£Õ8ßÛŒÑ„2J$cb1d3dcc-4649-483a-9a9f-4a74fe92626e
-Ÿpython:S117®"ZRename this local variable "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¾ˆî8ÛÑ„2J$10796e98-a8d1-4b11-8f54-4dca164019be
-python:S1542§"SRename function "addVaultGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(ê—…çıÿÿÿÿ8ÛÑ„2J$03753fd7-deb9-4f15-bb78-a752f258a2bd
+•python:S1192>"PDefine a constant instead of duplicating this literal "Group not found" 3 times.(Ğù‹³8ãŸá„2J$5b5e5a74-8a75-4dd2-a3cc-6ac83b22ec62
+python:S1192³"SDefine a constant instead of duplicating this literal "Missing parameters" 3 times.(ã‡ßÍûÿÿÿÿ8‚ãŸá„2J$1f11375a-777b-473a-899a-adc8d9217a24
+˜python:S117"TRename this parameter "nomGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú¡è8ƒãŸá„2J$a5aa8c4f-ffc5-4b71-b679-28136bf548d2
+˜python:S117"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú¡è8ƒãŸá„2J$9c8ff051-0871-4427-8b3d-31c1bacff996
+”python:S100"PRename method "ajouterGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(ú¡è8„ãŸá„2J$d2f44911-19f0-4ec6-893c-bedb9d08b382
+python:S117 "TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õå¤ûùÿÿÿÿ8„ãŸá„2J$655be655-7758-4786-9b51-31836c50b8d9
+›python:S100 "RRename method "getListsGroups" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õå¤ûùÿÿÿÿ8„ãŸá„2J$f4919922-7d79-40ab-a61a-8a95dd92b907
+python:S1179"URename this parameter "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡«”ğüÿÿÿÿ8ˆãŸá„2J$c7750ca2-9a8c-4474-aedf-9fec20049126
+python:S1179"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡«”ğüÿÿÿÿ8ˆãŸá„2J$f9a1f82c-e0ae-42bc-8fbe-4a77b6937f63
+¯python:S117;"fRename this local variable "verifgroupsharetoUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(åğâùşÿÿÿÿ8ˆãŸá„2J$06b4c72a-e23e-431e-b2de-dd2acd10bd94
+›python:S1009"RRename method "listVaultGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡«”ğüÿÿÿÿ8ˆãŸá„2J$20534110-faaf-428c-be1d-ea2baea371c7
+™python:S117R"URename this parameter "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ğµó8ˆãŸá„2J$4699f66b-71f7-4c42-9fd3-3fdd528bcdbb
+™python:S117R"URename this parameter "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ğµó8ˆãŸá„2J$4a293e28-d621-4e8b-b57a-30e1279b229e
+Ÿpython:S117R"[Rename this parameter "uuidUserRequest" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ğµó8ˆãŸá„2J$c41f360c-5164-46f9-a324-c466e6609e6f
+–python:S100R"RRename method "sharegroupUser" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬ğµó8ˆãŸá„2J$151ef474-8cf2-4d69-b61c-a1c64c4314c1
+¡python:S117~"]Rename this local variable "getSecretKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆÿ£8ˆãŸá„2J$e7aedbe0-fea3-4051-aa57-711cfd019c1c
+python:S117k"URename this parameter "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8ˆãŸá„2J$ee9eff28-acc9-42c3-8770-46e92e534f90
+Ÿpython:S117k"VRename this parameter "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8ˆãŸá„2J$396ca574-d213-469c-be1b-b6a4409dce4d
+python:S117k"URename this parameter "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8ˆãŸá„2J$560eb77c-b0ec-4c9a-9e08-71df025eb2da
+python:S117k"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8ˆãŸá„2J$3000d275-4e86-43ea-800f-46388dd56f31
+špython:S100k"QRename method "addVaultGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õ§“§øÿÿÿÿ8ˆãŸá„2J$f3f42c64-c227-4aa3-b288-31d27f5d3b67
+”python:S1542˜"NRename function "addGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(¨ë‡™8ŠãŸá„2J$8414358a-b082-4e5e-8188-809fcfd875ec
+python:S117¤"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8ŠãŸá„2J$7d981357-a159-42db-b3ce-5b8bee009ecb
+–python:S1542¢"PRename function "listGroups" to match the regular expression ^[a-z_][a-z0-9_]*$.(Éª¿Œ8ŠãŸá„2J$97de2010-635b-4e6b-b00c-ff9005f05a67
+Ÿpython:S117¸"ZRename this local variable "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹¥£±8ŠãŸá„2J$517a7b3b-7675-4df2-ab50-47353894539b
+Ÿpython:S117¶"ZRename this local variable "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¾ˆî8ŠãŸá„2J$59e4ed0f-7966-46cd-990e-7eb78cb62ef1
+œpython:S1542®"VRename function "shareGrouptoUser" to match the regular expression ^[a-z_][a-z0-9_]*$.(“äÌÕ8ŠãŸá„2J$9b55d7cb-6fa3-44e7-a045-4dd1225805a9
+Ÿpython:S117É"ZRename this local variable "isExpired" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹¥£±8ŠãŸá„2J$3d21776e-1490-472a-8224-0dde0dcf1a23
+ python:S117È"[Rename this local variable "uuidCoffre" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê£Õ8ŠãŸá„2J$0866d8b7-807c-4db4-ba66-7beb1f4a890c
+Ÿpython:S117Ç"ZRename this local variable "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¾ˆî8ŠãŸá„2J$67a4edc0-46ce-482f-878b-1b974032dae2
+python:S1542À"SRename function "addVaultGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(ê—…çıÿÿÿÿ8ŠãŸá„2J$5a1b7e6b-f18c-45c1-9ad1-6896221be360
+Ÿpython:S117Ø"ZRename this local variable "uuidGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¾ˆî8ŠãŸá„2J$170ebb08-c837-47c8-96d8-890117b177dd
+Ÿpython:S1542Ñ"TRename function "listVaultGroup" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷¹Ïãÿÿÿÿÿ8ŠãŸá„2J$46b69971-4c4a-4a10-8ba4-69a1144cdcbd

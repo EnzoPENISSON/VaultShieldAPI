@@ -12,53 +12,61 @@ from .Chiffrement import Chiffrement
 class Vault:
     tool = UtilityTool()
     def createVault(self, data):
-            # convert uuidkey to bytes
-            uuid1, uuid2 = self.tool.split_and_convert_two_uuids(str(data["uuidUser"]))
+        # convert uuidkey to bytes
+        uuid1, uuid2 = self.tool.split_and_convert_two_uuids(str(data["uuidUser"]))
 
-            # Convert UUID object to bytes
-            uuid_bytes = uuid1.bytes + uuid2.bytes
+        # Convert UUID object to bytes
+        uuid_bytes = uuid1.bytes + uuid2.bytes
+        coffrechiffre = Chiffrement(uuid_bytes)
 
-            coffrechiffre = Chiffrement(uuid_bytes)
+        categorie = data.get("uuidcategorie", None)
 
-            coffre = Coffre(
-                uuidCategorie=data["uuidcategorie"],
-                uuidCoffre = self.tool.longUUIDGenerator(),
-                username = data["username"],
-                email = data["email"],
-                password = data["password"],
-                sitename = data["sitename"],
-                urlsite = data["urlsite"],
-                urllogo = data["urllogo"],
-                note = data["note"]
-            )
-            coffrechiffre.ChiffrerVault(coffre)
+        if categorie:
+            categories = CategoryController()
+            listcategoriesuser = categories.getCategoriesIdentifiant(data["uuidUser"])
 
-            db.session.add(coffre)
+            if categorie not in listcategoriesuser:
+                return jsonify({"status": "failed", "message": "Category not found"})
 
-            db.session.commit()
+        coffre = Coffre(
+            uuidCategorie=categorie,
+            uuidCoffre = self.tool.longUUIDGenerator(),
+            username = data.get("username", ""),
+            email = data.get("email", ""),
+            password = data.get("password", ""),
+            sitename = data.get("sitename", ""),
+            urlsite = data.get("urlsite", ""),
+            urllogo = data.get("urllogo", ""),
+            note = data.get("note", "")
+        )
 
-            identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == data["uuidUser"]).first()
+        coffrechiffre.ChiffrerVault(coffre)
 
-            ## add to classeur
-            classeur = Classeur(
-                uuidUser = identifiantUtilistaure.uuidUser,
-                uuidCoffre = coffre.uuidCoffre
-            )
+        db.session.add(coffre)
 
-            db.session.add(classeur)
+        db.session.commit()
+        identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == data["uuidUser"]).first()
 
-            db.session.commit()
+        ## add to classeur
+        classeur = Classeur(
+            uuidUser = identifiantUtilistaure.uuidUser,
+            uuidCoffre = coffre.uuidCoffre
+        )
 
-            # save key in keyvault
-            clef = tablekeyuser(
-                uuidUser = data["uuidUser"],
-                uuidCoffre = coffre.uuidCoffre,
-                keyvault = coffrechiffre.key
-            )
+        db.session.add(classeur)
 
-            db.session.add(clef)
+        db.session.commit()
 
-            db.session.commit()
+        # save key in keyvault
+        clef = tablekeyuser(
+            uuidUser = data["uuidUser"],
+            uuidCoffre = coffre.uuidCoffre,
+            keyvault = coffrechiffre.key
+        )
+        print(clef)
+        db.session.add(clef)
+
+        db.session.commit()
 
     def getSecretKey(self, uuidUser, uuidCoffre):
         clef = db.session.query(tablekeyuser).filter(tablekeyuser.uuidUser == uuidUser).filter(tablekeyuser.uuidCoffre == uuidCoffre).first()
@@ -282,11 +290,11 @@ def updateVault():
     return jsonify({"status": "success", "message": "Vault updated"}), 201
 
 
-@app.route("/vault/delete", methods=['DELETE'])
+@app.route("/vault/delete", methods=['POST'])
 @jwt_required()
 def deleteVault():
     data = request.get_json()
-    idUser = get_jwt_identity()
+    uuiduser = get_jwt_identity()
 
     dictdata = json.dumps(data)
 
@@ -294,7 +302,7 @@ def deleteVault():
     dictdata = json.loads(dictdata)
 
     vault = Vault()
-    coffre = vault.deleteCoffre(idUser, dictdata["uuidCoffre"])
+    coffre = vault.deleteCoffre(uuiduser, dictdata["uuidCoffre"])
 
     if not coffre:
         return jsonify({"status": "failed", "message": "Vault not found"})

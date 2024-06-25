@@ -50,9 +50,34 @@ class GroupeController:
                 )
             # remove duplicate
             groups_list = [dict(t) for t in {tuple(d.items()) for d in groups_list}]
-            return jsonify({"status": "success", "groups": groups_list})
+            return jsonify(groups_list)
         except Exception as e:
             return jsonify({"status": "failed", "message": "Error getting groups "+str(e)})
+
+    def listVaultGroup(self, uuidUser, uuidGroup):
+        try:
+            verifgroupsharetoUser = db.session.query(sharegroupe_users).filter(sharegroupe_users.uuidGroupe == uuidGroup, sharegroupe_users.uuidUser == uuidUser).first()
+
+            if not verifgroupsharetoUser:
+                return jsonify({"status": "failed", "message": "Group not found"})
+
+            coffres = db.session.query(Coffre).join(Partager).filter(Partager.uuidGroupe == uuidGroup).all()
+            vaults_list = []
+            for coffre in coffres:
+                if coffre.Expired_Time and coffre.Expired_Time < datetime.now():
+                    continue
+                
+                vaults_list.append(
+                    {
+                        "uuidCoffre": coffre.uuidCoffre,
+                        "urlsite": coffre.urlsite,
+                        "sitename" : coffre.sitename,
+                        "urllogo": coffre.urllogo,
+                    }
+                )
+            return jsonify(vaults_list)
+        except Exception as e:
+            return jsonify({"status": "failed", "message": "Error getting vaults "+str(e)})
 
     def sharegroupUser(self,uuidUserRequest, emailusershare, uuidGroup,isExpired):
 
@@ -178,3 +203,18 @@ def addVaultGroup():
         return group.addVaultGroup(uuiduser, uuidGroup, uuidCoffre,isExpired)
     except Exception as e:
         return jsonify({"status": "failed", "message": "Error adding vault to group "+str(e)})
+
+@app.route("/group/listvault", methods=['GET'])
+@jwt_required()
+def listVaultGroup():
+    try:
+        uuiduser = get_jwt_identity()
+        paramettre = C.parametersissetPOST(['uuidGroup'], request.json)
+        if not paramettre:
+            return jsonify({"status": "failed", "message": "Missing parameters"})
+
+        uuidGroup = request.json.get('uuidGroup', None)
+
+        return group.listVaultGroup(uuiduser, uuidGroup)
+    except Exception as e:
+        return jsonify({"status": "failed", "message": "Error getting vaults "+str(e)})

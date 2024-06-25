@@ -56,7 +56,7 @@ class CategoryController:
                         "libCategorie": categorie.libCategorie
                     }
                 )
-            return jsonify({"status": "success", "categories": categories_list})
+            return jsonify(categories_list)
         except Exception as e:
             return jsonify({"status": "failed", "message": "Error getting categories "+str(e)})
 

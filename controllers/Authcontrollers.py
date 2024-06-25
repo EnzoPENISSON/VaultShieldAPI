@@ -35,6 +35,7 @@ class Authentification:
                         "status": "success",
                         "message": "User connected",
                         "username": user.username,
+                        "isAdmin": user.isAdmin,
                         "access_token": access_token
                     }
                 )

@@ -61,7 +61,7 @@ class Appartenir(db.Model):
     Utilisateurs = db.relationship('Utilisateur')
 
     def __str__(self):
-        return "idUser: "+str(self.idUser)+" idCategorie: "+str(self.idCategorie)
+        return "idUser: "+str(self.uuidUser)+" idCategorie: "+str(self.uuidCategorie)
 
 class Coffre(db.Model):
     __tablename__ = 'Coffre'
@@ -90,7 +90,7 @@ class Classeur(db.Model):
     Utilisateurs = db.relationship('Utilisateur')
 
     def __str__(self):
-        return "idUser: "+str(self.idUser)+" idCoffre: "+str(self.idCoffre)
+        return "idUser: "+str(self.uuidUser)+" idCoffre: "+str(self.uuidCoffre)
 
 class sharegroupe_users(db.Model):
     __tablename__ = 'sharegroupe_users'
