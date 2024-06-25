@@ -1,0 +1,9 @@
+
+¢python:S117"YRename this local variable "listUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(éáÀâÿÿÿÿÿ8İ¯œò„2J$158f4c0c-25f0-4285-84c3-7bb7203df177
+˜python:S100"ORename method "getUserUUID" to match the regular expression ^[a-z_][a-z0-9_]*$.(ıÜ®øÿÿÿÿ8İ¯œò„2J$f959ef3f-fb29-4004-b642-284f18aef9c4
+opython:S1481"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ8ÿò„2J$ac856a44-b4c3-43b0-92ed-2d72af15d022
+¢python:S117"YRename this local variable "listUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(™¬ğ×úÿÿÿÿ8Ù…ò„2J$a8022f9a-71db-49cb-ac52-5afd893de721
+˜python:S100"ORename method "getUserInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(óëŞ¸ıÿÿÿÿ8İ¯œò„2J$950f27b7-e067-499e-b82c-513ebc5f3e4f
+opython:S1481$"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ8Ù…ò„2J$492d1dfe-1ddc-4153-a81a-829102bc39c0
+—python:S1542."MRename function "getUUID" to match the regular expression ^[a-z_][a-z0-9_]*$.(üÇíÚøÿÿÿÿ8ß¯œò„2J$a35577d7-0fbc-4436-92a4-b19335580d06
+–python:S15428"QRename function "getUserInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(ã’¬’8ß¯œò„2J$effd8550-5630-451a-825d-d2d0bc8f7b8b

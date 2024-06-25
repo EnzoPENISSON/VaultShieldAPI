@@ -1,0 +1,5 @@
+
+™python:S11920"ODefine a constant instead of duplicating this literal "User not found" 3 times.(¡¤¨Íüÿÿÿÿ8à–óÒ„2J$2ca43be9-99fb-4391-894f-ec8787f5bd86
+python:S1192“"SDefine a constant instead of duplicating this literal "Missing parameters" 3 times.(ã‡ßÍûÿÿÿÿ8à–óÒ„2J$ff3bf50f-025f-4c41-8d18-2b7d2bed8322
+python:S117"YRename this local variable "listUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞÉìÑ8à–óÒ„2J$ded42e5e-1057-4087-89cc-c87a27ef0b2b
+python:S117-"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(–È¯Ãùÿÿÿÿ8à–óÒ„2J$c900f8a5-e99e-47c0-8a8c-705f64276b5e

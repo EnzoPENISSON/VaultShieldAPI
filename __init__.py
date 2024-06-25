@@ -7,6 +7,7 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
+# set the secret key.  keep this really secret:
 
 # Enable CORS
 CORS(app, resources={r"/*": {"origins": "*", "methods": ["POST", "PUT", "PATCH", "GET", "DELETE", "OPTIONS"], "allow_headers": "*"}})
@@ -22,7 +23,6 @@ app.config['MAIL_USE_SSL'] = False
 
 mail = Mail(app)
 
-#server = "127.0.0.1"
 server = "127.0.0.1:3310"
 database = "bddvaultshield"
 database2 = "bddkeyvault"
@@ -71,3 +71,6 @@ from .controllers.AdminControllers import *
 @app.route("/")
 def root():
     return "VaultShield"
+
+
+

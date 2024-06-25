@@ -1,5 +1,5 @@
 
-{python:S4502"1Make sure disabling CSRF protection is safe here.(«…‡ÿûÿÿÿÿ8¹©âĞ„2J$183ad985-4e39-45a9-980d-b01600a4538c
-}python:S5122"3Make sure this permissive CORS policy is safe here.(ï´ùûÿÿÿÿ8‰ØÂÒ„2J$95f6e940-89f5-4bce-a131-5a3192222961
-python:S2068"H"password" detected here, review this potentially hard-coded credential.(ò³¦—8º©âĞ„2J$87563e57-66f1-479d-bcf4-a15ba18d4fd4
-Œpython:S2068"H"password" detected here, review this potentially hard-coded credential.(©—àt8½©âĞ„2J$81ba271d-d6ce-4f25-b1ed-564e9d872142
+{python:S4502"1Make sure disabling CSRF protection is safe here.(«…‡ÿûÿÿÿÿ8³šÓò„2J$80432959-c1cc-41e6-95ea-1b950b0570ab
+}python:S5122"3Make sure this permissive CORS policy is safe here.(ï´ùûÿÿÿÿ8¹šÓò„2J$00ede076-f638-46a9-acf7-9029f9c6c639
+python:S2068"H"password" detected here, review this potentially hard-coded credential.(ò³¦—8»šÓò„2J$231ea5f7-7931-4093-b082-45d1d6375e22
+Œpython:S2068"H"password" detected here, review this potentially hard-coded credential.(©—àt8»šÓò„2J$3e9cc779-3e8f-4563-9cee-399519857039

@@ -12,150 +12,173 @@ from .Chiffrement import Chiffrement
 class Vault:
     tool = UtilityTool()
     def createVault(self, data):
-        # convert uuidkey to bytes
-        uuid1, uuid2 = self.tool.split_and_convert_two_uuids(str(data["uuidUser"]))
+        try:
+            # convert uuidkey to bytes
+            uuid1, uuid2 = self.tool.split_and_convert_two_uuids(str(data["uuidUser"]))
 
-        # Convert UUID object to bytes
-        uuid_bytes = uuid1.bytes + uuid2.bytes
-        coffrechiffre = Chiffrement(uuid_bytes)
+            # Convert UUID object to bytes
+            uuid_bytes = uuid1.bytes + uuid2.bytes
+            coffrechiffre = Chiffrement(uuid_bytes)
 
-        categorie = data.get("uuidcategorie", None)
+            categorie = data.get("uuidcategorie", None)
 
-        if categorie:
-            categories = CategoryController()
-            listcategoriesuser = categories.getCategoriesIdentifiant(data["uuidUser"])
+            if categorie:
+                categories = CategoryController()
+                listcategoriesuser = categories.getCategoriesIdentifiant(data["uuidUser"])
 
-            if categorie not in listcategoriesuser:
-                return jsonify({"status": "failed", "message": "Category not found"})
+                if categorie not in listcategoriesuser:
+                    return jsonify({"status": "failed", "message": "Category not found"})
 
-        coffre = Coffre(
-            uuidCategorie=categorie,
-            uuidCoffre = self.tool.longUUIDGenerator(),
-            username = data.get("username", ""),
-            email = data.get("email", ""),
-            password = data.get("password", ""),
-            sitename = data.get("sitename", ""),
-            urlsite = data.get("urlsite", ""),
-            urllogo = data.get("urllogo", ""),
-            note = data.get("note", "")
-        )
+            coffre = Coffre(
+                uuidCategorie=categorie,
+                uuidCoffre=self.tool.longUUIDGenerator(),
+                username=data.get("username", ""),
+                email=data.get("email", ""),
+                password=data.get("password", ""),
+                sitename=data.get("sitename", ""),
+                urlsite=data.get("urlsite", ""),
+                urllogo=data.get("urllogo", ""),
+                note=data.get("note", "")
+            )
 
-        coffrechiffre.ChiffrerVault(coffre)
+            coffrechiffre.ChiffrerVault(coffre)
 
-        db.session.add(coffre)
+            db.session.add(coffre)
 
-        db.session.commit()
-        identifiantUtilistaure = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == data["uuidUser"]).first()
+            db.session.commit()
+            identifiantUtilistaure = db.session.query(Utilisateur).filter(
+                Utilisateur.uuidUser == data["uuidUser"]).first()
 
-        ## add to classeur
-        classeur = Classeur(
-            uuidUser = identifiantUtilistaure.uuidUser,
-            uuidCoffre = coffre.uuidCoffre
-        )
+            ## add to classeur
+            classeur = Classeur(
+                uuidUser=identifiantUtilistaure.uuidUser,
+                uuidCoffre=coffre.uuidCoffre
+            )
 
-        db.session.add(classeur)
+            db.session.add(classeur)
 
-        db.session.commit()
+            db.session.commit()
 
-        # save key in keyvault
-        clef = tablekeyuser(
-            uuidUser = data["uuidUser"],
-            uuidCoffre = coffre.uuidCoffre,
-            keyvault = coffrechiffre.key
-        )
-        print(clef)
-        db.session.add(clef)
+            # save key in keyvault
+            clef = tablekeyuser(
+                uuidUser=data["uuidUser"],
+                uuidCoffre=coffre.uuidCoffre,
+                keyvault=coffrechiffre.key
+            )
+            print(clef)
+            db.session.add(clef)
 
-        db.session.commit()
+            db.session.commit()
+        except Exception as e:
+            return jsonify({"status": "failed", "message": "Error creating vault "+str(e)})
 
     def getSecretKey(self, uuidUser, uuidCoffre):
-        clef = db.session.query(tablekeyuser).filter(tablekeyuser.uuidUser == uuidUser).filter(tablekeyuser.uuidCoffre == uuidCoffre).first()
+        try:
+            clef = db.session.query(tablekeyuser).filter(tablekeyuser.uuidUser == uuidUser).filter(
+                tablekeyuser.uuidCoffre == uuidCoffre).first()
 
-        if not clef:
+            if not clef:
+                return None
+
+            return clef.keyvault
+        except Exception as e:
             return None
-
-        return clef.keyvault
 
     def getVaults(self, uuidUser):
 
-        coffres = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == uuidUser).all()
-        coffres_list = []
-        for coffre in coffres:
-            coffres_list.append(
-                {
-                    "uuidCoffre": coffre.uuidCoffre,
-                    "urlsite": coffre.urlsite,
-                    "sitename" : coffre.sitename,
-                    "urllogo": coffre.urllogo,
-                }
-            )
+        try :
+            coffres = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == uuidUser).all()
+            coffres_list = []
+            for coffre in coffres:
+                coffres_list.append(
+                    {
+                        "uuidCoffre": coffre.uuidCoffre,
+                        "urlsite": coffre.urlsite,
+                        "sitename": coffre.sitename,
+                        "urllogo": coffre.urllogo,
+                    }
+                )
 
-        return coffres_list
+            return coffres_list
+        except Exception as e:
+            return []
 
     def getVault(self, uuidUser, uuidCoffre):
-        coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == uuidUser).filter(Coffre.uuidCoffre == uuidCoffre).first()
+        try:
+            coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == uuidUser).filter(
+                Coffre.uuidCoffre == uuidCoffre).first()
 
-        return coffre
+            return coffre
+        except Exception as e:
+            return None
 
     def updateVault(self, data):
-        uuidcoffre = data["uuidCoffre"]
-        iduser = data["uuidUser"]
+        try:
+            uuidcoffre = data["uuidCoffre"]
+            iduser = data["uuidUser"]
 
-        coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == iduser).filter(Coffre.uuidCoffre == uuidcoffre).first()
+            coffre = db.session.query(Coffre).join(Classeur).filter(Classeur.uuidUser == iduser).filter(
+                Coffre.uuidCoffre == uuidcoffre).first()
 
-        if not coffre:
+            if not coffre:
+                return None
+
+            # parcourir les données
+            for key, value in data.items():
+                if key == "username":
+                    coffre.username = value
+                if key == "email":
+                    coffre.email = value
+                elif key == "password":
+                    coffre.password = value
+                elif key == "sitename":
+                    coffre.sitename = value
+                elif key == "urlsite":
+                    coffre.urlsite = value
+                elif key == "urllogo":
+                    coffre.urllogo = value
+                elif key == "note":
+                    coffre.note = value
+
+            uuid1, uuid2 = self.tool.split_and_convert_two_uuids(str(iduser))
+
+            # Convert UUID object to bytes
+            uuid_bytes = uuid1.bytes + uuid2.bytes
+
+            coffrechiffre = Chiffrement(uuid_bytes)
+
+            coffrechiffre.updateVault(coffre, data["secretkey"])
+
+            db.session.commit()
+
+            return coffre
+        except Exception as e:
             return None
-
-        # parcourir les données
-        for key, value in data.items():
-            if key == "username":
-                coffre.username = value
-            if key == "email":
-                coffre.email = value
-            elif key == "password":
-                coffre.password = value
-            elif key == "sitename":
-                coffre.sitename = value
-            elif key == "urlsite":
-                coffre.urlsite = value
-            elif key == "urllogo":
-                coffre.urllogo = value
-            elif key == "note":
-                coffre.note = value
-
-        uuid1, uuid2 = self.tool.split_and_convert_two_uuids(str(iduser))
-
-        # Convert UUID object to bytes
-        uuid_bytes = uuid1.bytes + uuid2.bytes
-
-        coffrechiffre = Chiffrement(uuid_bytes)
-
-        coffrechiffre.updateVault(coffre,data["secretkey"])
-
-        db.session.commit()
-
-        return coffre
 
     def deleteCoffre(self, uuidUser, uuidCoffre):
-        classeur = db.session.query(Classeur).filter(Classeur.uuidUser == uuidUser).filter(Classeur.uuidCoffre == uuidCoffre).first()
+        try:
+            classeur = db.session.query(Classeur).filter(Classeur.uuidUser == uuidUser).filter(
+                Classeur.uuidCoffre == uuidCoffre).first()
 
-        if not classeur:
+            if not classeur:
+                return None
+
+            db.session.delete(classeur)
+
+            db.session.commit()
+
+            coffre = db.session.query(Coffre).filter(Coffre.uuidCoffre == uuidCoffre).first()
+
+            if not coffre:
+                return None
+
+            db.session.delete(coffre)
+
+            db.session.commit()
+
+            return coffre
+        except Exception as e:
             return None
-
-        db.session.delete(classeur)
-
-        db.session.commit()
-
-        coffre = db.session.query(Coffre).filter(Coffre.uuidCoffre == uuidCoffre).first()
-
-        if not coffre:
-            return None
-
-        db.session.delete(coffre)
-
-        db.session.commit()
-
-        return coffre
 
     def AssocierCategorie(self, uuidUser, uuidCategorie, uuidCoffre):
         try:

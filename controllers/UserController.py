@@ -9,25 +9,31 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 class UserController:
 
     def getUserUUID(self, email):
-        listUser = db.session.query(Utilisateur).filter(Utilisateur.email == email).first()
-        if listUser:
-            return listUser.uuidUser
-        else:
+        try:
+            listUser = db.session.query(Utilisateur).filter(Utilisateur.email == email).first()
+            if listUser:
+                return listUser.uuidUser
+            else:
+                return None
+        except Exception as e:
             return None
 
     def getUserInfo(self, uuiduser):
-        listUser = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == uuiduser).first()
-        if listUser:
-            return jsonify(
-                {
-                    "status": "success",
-                    "message": "User found",
-                    "username": listUser.username,
-                    "email": listUser.email,
-                    "isAdmin": listUser.isAdmin
-                }
-            )
-        else:
+        try:
+            listUser = db.session.query(Utilisateur).filter(Utilisateur.uuidUser == uuiduser).first()
+            if listUser:
+                return jsonify(
+                    {
+                        "status": "success",
+                        "message": "User found",
+                        "username": listUser.username,
+                        "email": listUser.email,
+                        "isAdmin": listUser.isAdmin
+                    }
+                )
+            else:
+                return jsonify({"status": "failed", "message": "User not found"})
+        except Exception as e:
             return jsonify({"status": "failed", "message": "User not found"})
 
 

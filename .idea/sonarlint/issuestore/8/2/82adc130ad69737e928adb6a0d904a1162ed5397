@@ -1,0 +1,13 @@
+
+œpython:S1192"RDefine a constant instead of duplicating this literal "User is not admin" 3 times.( ³æéşÿÿÿÿ8·ªâĞ„2J$d5c188c3-9f73-4de6-b730-01c7c09540ae
+˜python:S117"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßÇ¤÷8·ªâĞ„2J$04bc2465-549d-4cf9-85f2-08405227166d
+“python:S100"ORename method "isUserAdmin" to match the regular expression ^[a-z_][a-z0-9_]*$.(ßÇ¤÷8·ªâĞ„2J$b6d61d2b-adeb-4b26-a218-ce57a291c347
+python:S117"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ò¬Ï üÿÿÿÿ8¸ªâĞ„2J$368665c2-d771-4214-9f4c-09ab4078b6d7
+–python:S100"MRename method "listAdmin" to match the regular expression ^[a-z_][a-z0-9_]*$.(ò¬Ï üÿÿÿÿ8¸ªâĞ„2J$29626385-29e6-4535-af1d-904130a8b608
+python:S117*"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄŸÌ²úÿÿÿÿ8¸ªâĞ„2J$8998d902-e5a3-40a8-94ca-8110d85cfd7b
+™python:S100*"PRename method "setUserAdmin" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÄŸÌ²úÿÿÿÿ8¸ªâĞ„2J$66bf6153-f05d-46a4-8c0d-4c632fe3c2d8
+˜python:S1177"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š£Äå8¸ªâĞ„2J$c5f39bfe-f9f0-4b67-8180-8ca81b193823
+•python:S1007"QRename method "listeAllVault" to match the regular expression ^[a-z_][a-z0-9_]*$.(Š£Äå8¹ªâĞ„2J$bc1ab3f2-7e21-4e0a-9d54-0eea35355e98
+python:S117O"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8¹ªâĞ„2J$3ddb4123-a156-4e4b-8c14-63b772903ccb
+python:S117U"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8¹ªâĞ„2J$a7f29787-e4c8-4629-88fe-e38f6a58589d
+python:S117\"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôû’ê8¹ªâĞ„2J$58978fbb-cf0c-4e76-8fef-9fd23a883cbe

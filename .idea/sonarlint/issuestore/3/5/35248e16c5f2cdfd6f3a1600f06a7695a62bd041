@@ -1,21 +1,21 @@
 
-úpython:S117"XRename this parameter "nomCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(√ﬂ¢®8µ‰Í÷Ñ2J$3c040e6f-e223-46fa-b5dc-f2943a6e25f2
-òpython:S117"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(√ﬂ¢®8µ‰Í÷Ñ2J$84da0fe6-5645-4bb8-9e8b-6adc6da50d52
-òpython:S100"TRename method "ajouterCategorie" to match the regular expression ^[a-z_][a-z0-9_]*$.(√ﬂ¢®8Õ‰Í÷Ñ2J$70968f9d-17e8-4ad8-8ead-cd85b2367019
-òpython:S117$"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.( ¯Å¿8◊‰Í÷Ñ2J$7984d4cb-2e79-4b91-b126-653f0d655241
-†python:S100$"\Rename method "getCategoriesIdentifiant" to match the regular expression ^[a-z_][a-z0-9_]*$.( ¯Å¿8·‰Í÷Ñ2J$4c60886f-5047-49cd-a222-d6df83e21bde
-òpython:S1170"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡Ç≠È8Ì‰Í÷Ñ2J$17c099f5-08b0-44cb-9f12-2163420c181c
-ïpython:S1000"QRename method "getCategories" to match the regular expression ^[a-z_][a-z0-9_]*$.(¡Ç≠È8Ì‰Í÷Ñ2J$ae2a2d18-c3a3-4feb-9ace-1587f1d3fdbd
-òpython:S117?"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ò⁄‘8Ì‰Í÷Ñ2J$70eca04f-ae70-4df8-b8f0-ec4e57e66d9a
-°python:S100?"]Rename method "getListVaultsWithCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(£ò⁄‘8Ì‰Í÷Ñ2J$75450cbf-aca0-48cc-a2cd-bc094e31c609
-üpython:S117J"VRename this local variable "listV" to match the regular expression ^[_a-z][a-z0-9_]*$.( üÏ∂˘ˇˇˇˇ8Ì‰Í÷Ñ2J$ab88f26d-3950-46ae-884b-a4de0309f33d
-ùpython:S117H"YRename this parameter "uuidCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(€Ä‹∏8Ì‰Í÷Ñ2J$fce9ae4c-e8bc-4d35-8bc4-beb6ab913afd
-òpython:S117H"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(€Ä‹∏8Ì‰Í÷Ñ2J$f3f90e41-4dd4-4df0-bfe3-87176a59528e
-ñpython:S100H"RRename method "removeCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(€Ä‹∏8Ì‰Í÷Ñ2J$8c0d256b-429c-4212-811d-c5c98c698adf
-°python:S117f"]Rename this local variable "nomCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ï§Ω8Ì‰Í÷Ñ2J$e436cd87-54dd-4a99-9510-14a555cb7933
-ùpython:S117g"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘˚íÍ8Ì‰Í÷Ñ2J$916c7ad2-acb1-42c9-a367-a82d31fd1c91
-ñpython:S1542b"QRename function "addCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(±¶É‹8Ì‰Í÷Ñ2J$1ce61bee-b8fb-426d-b3cd-93e64ed69f00
-ùpython:S1542r"SRename function "getCategories" to match the regular expression ^[a-z_][a-z0-9_]*$.(óÀ ã˚ˇˇˇˇ8Ì‰Í÷Ñ2J$b9b85d9d-2b28-4deb-88a7-e5e9e78c5cce
-¢python:S117}"^Rename this local variable "uuidCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬…üµ8Ì‰Í÷Ñ2J$12cefcd3-2f8d-4a78-ad58-92ec6001f97c
-ùpython:S117~"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘˚íÍ8Ì‰Í÷Ñ2J$7aee50a5-8de2-4bc4-921b-24df3b07b7ed
-ûpython:S1542y"TRename function "removeCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(√ÏŒŸ˙ˇˇˇˇ8Ì‰Í÷Ñ2J$cc8a2cdf-ead7-489e-99a7-ce789c859840
+úpython:S117"XRename this parameter "nomCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(√ﬂ¢®8µ‰Í÷Ñ2J$e2a00395-860f-4dfd-9fc9-66906b976c14
+òpython:S117"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(√ﬂ¢®8µ‰Í÷Ñ2J$4eb8607b-5be6-4f12-88e9-89ff71db167c
+òpython:S100"TRename method "ajouterCategorie" to match the regular expression ^[a-z_][a-z0-9_]*$.(√ﬂ¢®8Õ‰Í÷Ñ2J$7498e600-4b77-4d2f-8c09-5733fe12ac8a
+òpython:S117$"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.( ¯Å¿8◊‰Í÷Ñ2J$153526db-a1c1-4eeb-91ac-6852e572c62c
+†python:S100$"\Rename method "getCategoriesIdentifiant" to match the regular expression ^[a-z_][a-z0-9_]*$.( ¯Å¿8·‰Í÷Ñ2J$5049af1f-aadc-4734-b730-dc5f84a1c785
+òpython:S1170"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡Ç≠È8Ì‰Í÷Ñ2J$0c9b462f-f703-4922-8d71-f25b8b43194b
+ïpython:S1000"QRename method "getCategories" to match the regular expression ^[a-z_][a-z0-9_]*$.(¡Ç≠È8Ì‰Í÷Ñ2J$eb204de2-a354-4db9-9bf5-4bd29e2f1f18
+òpython:S117?"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ò⁄‘8Ì‰Í÷Ñ2J$881e385a-15e3-4ffa-a2dd-3f58a09a392e
+°python:S100?"]Rename method "getListVaultsWithCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(£ò⁄‘8Ì‰Í÷Ñ2J$3838a986-e006-43f6-ad29-ea68169679b8
+üpython:S117J"VRename this local variable "listV" to match the regular expression ^[_a-z][a-z0-9_]*$.( üÏ∂˘ˇˇˇˇ8Ì‰Í÷Ñ2J$da025efe-5d91-4b27-9cad-38a992acb21e
+ùpython:S117H"YRename this parameter "uuidCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(€Ä‹∏8Ì‰Í÷Ñ2J$e7fc412b-6fdb-42cd-bbcc-40f234b35c05
+òpython:S117H"TRename this parameter "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(€Ä‹∏8Ì‰Í÷Ñ2J$8704d61a-89f3-4403-bb79-d2a6e7156ee0
+ñpython:S100H"RRename method "removeCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(€Ä‹∏8Ì‰Í÷Ñ2J$0e1104c1-3a56-4216-b21c-9b10b6f41217
+°python:S117f"]Rename this local variable "nomCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ï§Ω8Ì‰Í÷Ñ2J$e6a55239-ee97-477c-8a5d-c3b09527870a
+ùpython:S117g"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘˚íÍ8Ì‰Í÷Ñ2J$31d7f602-da6b-4dd7-b460-02bd24208532
+ñpython:S1542b"QRename function "addCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(±¶É‹8Ì‰Í÷Ñ2J$0f07c5fa-dd7d-46be-a9e1-84faf531fbc8
+ùpython:S1542r"SRename function "getCategories" to match the regular expression ^[a-z_][a-z0-9_]*$.(óÀ ã˚ˇˇˇˇ8Ì‰Í÷Ñ2J$5c15dfbb-4f74-4e81-aad6-4497a3159405
+¢python:S117}"^Rename this local variable "uuidCategorie" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬…üµ8Ì‰Í÷Ñ2J$04328aa4-8783-49d2-87e2-b284c72cc0e1
+ùpython:S117~"YRename this local variable "uuidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘˚íÍ8Ì‰Í÷Ñ2J$91760bc3-dfce-4324-a8f5-71deb25321b2
+ûpython:S1542y"TRename function "removeCategory" to match the regular expression ^[a-z_][a-z0-9_]*$.(√ÏŒŸ˙ˇˇˇˇ8Ì‰Í÷Ñ2J$23439df3-609d-4222-ae18-559967f25336
