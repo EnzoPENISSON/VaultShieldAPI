@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="corriger erreur dataclass.py">
+    <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="list vault group">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/GroupeController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GroupeController.py" afterDir="false" />
@@ -389,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719309832930</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="list vault group">
+      <option name="closed" value="true" />
+      <created>1719310660052</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1719310660052</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -426,7 +434,8 @@
     <MESSAGE value="erreurs corriger" />
     <MESSAGE value="corriger erreur" />
     <MESSAGE value="corriger erreur dataclass.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="corriger erreur dataclass.py" />
+    <MESSAGE value="list vault group" />
+    <option name="LAST_COMMIT_MESSAGE" value="list vault group" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

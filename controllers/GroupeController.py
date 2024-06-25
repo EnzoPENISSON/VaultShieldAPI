@@ -55,6 +55,13 @@ class GroupeController:
         except Exception as e:
             return jsonify({"status": "failed", "message": "Error getting groups "+str(e)})
 
+    def getusergroup(self, uuidCoffre):
+        try:
+            userkey = db.session.query(tablekeyuser).filter(tablekeyuser.uuidCoffre == uuidCoffre).first()
+            return userkey
+        except Exception as e:
+            return jsonify({"status": "failed", "message": "Error getting user "+str(e)})
+
     def listVaultGroup(self, uuidUser, uuidGroup):
         try:
             verifgroupsharetoUser = db.session.query(sharegroupe_users).filter(
@@ -224,3 +231,57 @@ def listVaultGroup():
         return group.listVaultGroup(uuiduser, uuidGroup)
     except Exception as e:
         return jsonify({"status": "failed", "message": "Error getting vaults "+str(e)})
+
+
+class Vault:
+    pass
+
+
+class Chiffrement:
+    pass
+
+
+@app.route("/group/vaultdetail", methods=['GET'])
+@jwt_required()
+def vauldetailgroup():
+    paramettre = C.parametersissetPOST(['uuidCoffre','uuidGroup'], request.json)
+
+    if not paramettre:
+        return jsonify({"status": "failed", "message": "Missing parameters"})
+
+    data = request.get_json()
+
+    usergroup = group.getusergroup(data["uuidCoffre"])
+
+    uuidUser = usergroup.uuidUser
+    uuidCoffre = data["uuidCoffre"]
+
+    secretkey = usergroup.keyvault
+
+    from .Vault import Vault
+    vault = Vault()
+    coffre = vault.getVault(uuidUser, uuidCoffre)
+
+    if not coffre:
+        return jsonify({"status": "failed", "message": "Vault not found"})
+    tool = UtilityTool()
+    uuid1, uuid2 = tool.split_and_convert_two_uuids(str(uuidUser))
+
+    uuidkey = uuid1.bytes + uuid2.bytes
+
+    from .Chiffrement import Chiffrement
+    coffrechiffre = Chiffrement(uuidkey)
+
+    return jsonify(
+        {
+            "uuidCoffre": coffre.uuidCoffre,
+            "uuidCategorie": coffre.uuidCategorie,
+            "username": coffrechiffre.decrypt_password(coffre.username, secretkey.encode(), uuidkey),
+            "email": coffrechiffre.decrypt_password(coffre.email, secretkey.encode(), uuidkey),
+            "password": coffrechiffre.decrypt_password(coffre.password, secretkey.encode(), uuidkey),
+            "sitename": coffre.sitename,
+            "urlsite": coffre.urlsite,
+            "urllogo": coffre.urllogo,
+            "note": coffrechiffre.decrypt_password(coffre.note, secretkey.encode(), uuidkey)
+        }
+    )
