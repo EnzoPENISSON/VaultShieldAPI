@@ -68,7 +68,7 @@ class Coffre(db.Model):
     __table_args__ = {'extend_existing': True}
 
     uuidCoffre = db.Column(db.String(100), primary_key=True)
-    uuidCategorie = db.Column(db.ForeignKey('Categorie.uuidCategorie'), index=True)
+    uuidCategorie = db.Column(db.ForeignKey('categorie.uuidCategorie'), index=True)
     username = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(255), nullable=False)
     password = db.Column(db.String(512), nullable=False)
@@ -77,7 +77,7 @@ class Coffre(db.Model):
     urllogo = db.Column(db.String(512), nullable=False)
     note = db.Column(db.String(512), nullable=False)
 
-    Categorie = db.relationship('Categorie')
+    Categorie = db.relationship('categorie')
 
 class Classeur(db.Model):
     __tablename__ = 'classeur'
