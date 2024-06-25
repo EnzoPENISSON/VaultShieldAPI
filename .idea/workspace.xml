@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c484f690-00a2-4c91-abcc-d37bb6f5cb24" name="Changes" comment="corriger erreur dataclass.py">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/21f0cb6d537528a961b9a077a0f7fd832cc60d14" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c5f70a034c27ee3e80374121f96ef8a5969a93d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/dataclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/dataclass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/GroupeController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GroupeController.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -381,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719308601829</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="corriger erreur dataclass.py">
+      <option name="closed" value="true" />
+      <created>1719309832930</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1719309832930</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

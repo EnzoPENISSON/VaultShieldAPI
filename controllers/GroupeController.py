@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from operator import or_
 
 from .Controller import ControllerClass as C
 
@@ -56,7 +57,14 @@ class GroupeController:
 
     def listVaultGroup(self, uuidUser, uuidGroup):
         try:
-            verifgroupsharetoUser = db.session.query(sharegroupe_users).filter(sharegroupe_users.uuidGroupe == uuidGroup, sharegroupe_users.uuidUser == uuidUser).first()
+            verifgroupsharetoUser = db.session.query(sharegroupe_users).filter(
+                sharegroupe_users.uuidGroupe == uuidGroup,
+                sharegroupe_users.uuidUser == uuidUser,
+                or_(
+                    sharegroupe_users.Expired_Time.is_(None),  # Expired_Time is None
+                    sharegroupe_users.Expired_Time >= datetime.now()  # Expired_Time is not None and >= current datetime
+                )
+            ).first()
 
             if not verifgroupsharetoUser:
                 return jsonify({"status": "failed", "message": "Group not found"})
@@ -64,9 +72,7 @@ class GroupeController:
             coffres = db.session.query(Coffre).join(Partager).filter(Partager.uuidGroupe == uuidGroup).all()
             vaults_list = []
             for coffre in coffres:
-                if coffre.Expired_Time and coffre.Expired_Time < datetime.now():
-                    continue
-                
+
                 vaults_list.append(
                     {
                         "uuidCoffre": coffre.uuidCoffre,
