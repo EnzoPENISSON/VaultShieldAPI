@@ -1,17 +1,7 @@
-Creer un venv
+Sur windwows run :
 
-python3 -m venv venv/
+bash setup.sh
 
-activer le venv
+Sur Linux :
 
-source venv/bin/activate
-
-run :
-
-pip install -r requirements.txt
-
-Dev mode
-flask --app __init__ run --debug -p 8080
-
-Production mode with https:
-flask --app init run -p 8080 --cert=domain.crt --key=domain.key
+./setup.sh
